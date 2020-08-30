@@ -7,7 +7,7 @@ let twing = new TwingEnvironment(loader);
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-	twing.render("index.twig", {}).then((output) => {
+	twing.render("index.twig", { obj }).then((output) => {
 		res.end(output);
 	});
 });

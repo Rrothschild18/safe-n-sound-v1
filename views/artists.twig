@@ -1,0 +1,89 @@
+{% extends 'base.twig' %}
+
+{% block conteudo %}
+<div class="Banner">
+    <div class="img"></div>
+
+    <section class="Albuns">
+        <div class="container">
+            <div class="Card">
+                <div class="busca">
+                    <form class="Form" method="POST" id="form">
+                        <h2>Procure seu album do spotify 2</h2>
+                        <label for="">Digite o ID do album</label>
+                        <input type="text" name="album" placeholder="vAFBjdb2XJCyYp2zlwJDI" />
+                        {% if data.msg %}
+                        <small id="msg">{{data.msg}}</small>
+                        {% else  %}
+                        <small id="msg">{{data.token}}</small>
+                        {% endif %}
+                        <button class="Button" id='submit' type="submit">Busca</button>
+                    </form>
+                </div>
+                <div class="Loading hide">
+                    <div class="lds-ripple">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                {% if data.type %}
+                <div class="result" id="result-request">
+                    <h1 id="album-name"></h1>
+                    <div class="Row">
+                        <div class="col _col-12">
+                            <div class="content">
+                                <div class="Row">
+                                    <div class="imgg">
+                                        <div class="lines"></div>
+                                        <div class="lines _reverse"></div>
+                                        <img src="{{data.images[0].url}}" id="album-img" download="" alt="Capa Album" />
+                                    </div>
+                                    <div class="conteudo">
+                                        <div class="sobre">
+                                            <h3>Sobre</h3>
+                                            <ul class="List">
+                                                <li>
+                                                    Artista
+                                                    <span id="artist">{{data.artists[0].name}}</span>
+                                                </li>
+                                                <li>
+                                                    Categoria
+                                                    <span id="album-type">{{data.album_type}}</span>
+                                                </li>
+                                                <li>
+                                                    Lancamento
+                                                    <span id="album-release">{{data.release_date}}</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Line"></div>
+                    <div class="Musicas">
+                        <h2>Musicas do Album</h2>
+                        <div class="arrow">
+                            <i id="songs">></i>
+                        </div>
+                        <ul id="musicas" class="hide">
+                            <li>
+                                <span class="pos">#</span><span id="title">TITLE</span><span class="time"
+                                    id="time">TIME</span>
+                            </li>
+                            {% for key,i in item %}
+                                {% set y = key + 1 %}
+                                    <li>
+                                        <span class="pos">{{y}}</span>{{i.name}}<span class="time" id="time">{{i.duration_ms}}</span>
+                                    </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

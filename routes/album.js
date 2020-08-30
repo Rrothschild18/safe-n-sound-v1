@@ -9,7 +9,7 @@ let twing = new TwingEnvironment(loader);
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
-	twing.render("album.twig", req.params).then((output) => {
+	twing.render("artists.twig", req.params).then((output) => {
 		res.end(output);
 	});
 });
