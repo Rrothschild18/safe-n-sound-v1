@@ -87,4 +87,30 @@ function doSwapMove(t, f, move, objsPos) {
 	f.style.setProperty("top", objsPos.fixed.top + "px");
 	f.style.setProperty("left", objsPos.fixed.left + "px");
 	f.classList.toggle("_main");
+
+	let tpos = getPosition(t);
+	tpos.x += objsPos.target.left;
+	tpos.y += objsPos.target.top;
+
+	let fpos = getPosition(t);
+	fpos.x += objsPos.fixed.left;
+	fpos.y += objsPos.fixed.top;
+
+	let res = calc(tpos, getPosition(f));
+	let res2 = calc(getPosition(f), fpos);
+	console.log(res2);
+
+	objsPos.target.left = res2.x;
+	objsPos.target.top = res2.y;
+	objsPos.fixed.left = res.x;
+	objsPos.fixed.top = res.y;
+
+	// console.log(move);
+	t.parentNode.style.setProperty("top", objsPos.target.top + "px");
+	t.parentNode.style.setProperty("left", objsPos.target.left + "px");
+	t.parentNode.classList.toggle("_main");
+
+	f.style.setProperty("top", objsPos.fixed.top + "px");
+	f.style.setProperty("left", objsPos.fixed.left + "px");
+	f.classList.toggle("_main");
 }
