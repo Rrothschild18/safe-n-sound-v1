@@ -1,0 +1,142 @@
+.Card {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    padding: 40px 80px;
+    box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.15);
+    color: #0d1226;
+    background-color: #fff;
+
+    h1 {
+        display: block;
+        text-align: center;
+        margin: 40px 0;
+    }
+    
+    .imgg {
+        padding: 20px;
+        border: 3px solid #000;
+        max-width: 347px;
+        max-height: 347px;
+        
+        img {
+            display: inline-block;
+    
+        }
+
+        .lines {
+            
+            &::before{
+                content: '';
+                display: block;
+                background-color: #fff;
+                height: 180px;
+                width: 3px;
+                top: 150px;
+                position: absolute;
+                right: -23px;
+                z-index: 3;
+            
+            }
+            
+            &::after{
+                content: '';
+                display: block;
+                background-color: #fff;
+                height: 3px;
+                width: 74.3%;
+                bottom: -324px;
+                position: absolute;
+                left: 98px;
+                z-index: 3;
+            }
+
+            &._reverse {
+                &::before{
+                    content: '';
+                    display: block;
+                    background-color: #fff;
+                    height: 180px;
+                    width: 3px;
+                    top: -21px;
+                    position: absolute;
+                    left: -23px;
+                    z-index: 3;
+                
+                }
+                
+                &::after{
+                    content: '';
+                    display: block;
+                    background-color: #fff;
+                    height: 3px;
+                    width: 74.3%;
+                    bottom: 20px;
+                    position: absolute;
+                    left: -23px;
+                    z-index: 3;
+                }
+            }
+        }
+        
+    }
+
+    .arrow {
+        text-align: center;
+        i {
+            display: inline-block;
+            transform: rotate(270deg);
+            font-size: 40px;
+            height: 60px;
+            width: 60px;
+            margin: 0 auto;
+            border-radius: 50%;
+            transition: transform 1s;
+            user-select: none;
+            cursor: pointer;
+            
+            &:hover{
+                background-color: #0d1226;
+                backdrop-filter: blur(4px);
+                color: #ffffff;
+            }
+        }
+    }
+
+    .result {
+        overflow:hidden;
+        max-height: 3000px;
+        transition: max-height 1s ease-in-out;
+
+    }
+
+    .hide {
+        pointer-events: none;
+        max-height: 0;
+        transition: max-height 1s ease-in-out;
+    }
+
+    .content {
+        padding: 0 10px 10px;
+        margin-bottom: 70px;
+        
+        .conteudo {
+            display: block;
+            margin: 0 auto;
+            
+            .sobre {
+                border-radius: 4px;
+                display: block;
+                margin: 50px auto;
+                padding: 30px 40px;
+                box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.15);
+                
+                h3 {
+                    
+                    text-align: center;
+                }
+            }
+        }
+
+    }
+}

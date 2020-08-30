@@ -1,0 +1,70 @@
+.Services {
+	align-items: center;
+	overflow: hidden;
+	padding: 100px 0;
+
+	h2 {
+		text-align: center;
+	}
+
+	h4 {
+		margin-bottom: 15px;
+	}
+
+	.img {
+		display: block;
+		background-repeat: no-repeat;
+		background-size: auto;
+		padding: 250px 0;
+		background-position: center;
+	}
+	.steps {
+		text-align: center;
+		display: flex;
+		align-items: center;
+		margin-top: 55px;
+
+		i {
+			display: inline-block;
+			font-size: 60px;
+			color: #000;
+
+			&::before {
+				margin-right: 0;
+				margin-left: 0;
+				width: 60px;
+			}
+
+			&::after {
+				content: "";
+				position: absolute;
+				display: block;
+				left: 0;
+				top: 0;
+				width: 60px;
+				height: 60px;
+				border-radius: 5px;
+				background-color: $light-blue-a;
+				transform: translate(40%, 40%);
+				z-index: -1;
+			}
+		}
+
+		.texto {
+			display: inline-block;
+			text-align: left;
+			margin: 0 0 0 70px;
+		}
+
+		i.icon-cloud_ {
+			&::before {
+				font-size: 43px;
+			}
+		}
+		i.icon-chart-line {
+			&::before {
+				margin-top: 40px;
+			}
+		}
+	}
+}

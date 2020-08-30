@@ -1,0 +1,22 @@
+.Form {
+    .Button {
+        display: block;
+        margin: 30px auto;
+        width: 200px;
+    }
+    input {
+        margin-bottom: 10px;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    small {
+        display: inline-block;
+        color: red;
+
+        span {
+            text-decoration: underline;
+        }
+    }
+}

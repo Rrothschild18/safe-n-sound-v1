@@ -1,0 +1,49 @@
+.Musicas{
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    color: #0d1226;
+    
+    h2 {
+        text-align: center;
+    }
+    
+    ul {
+        list-style: none;
+        opacity: 1;
+        overflow:hidden;
+        max-height: 1000px;
+        transition: max-height 1s ease-in-out;
+
+        li {
+            padding: 15px;
+
+         &:first-child {
+            &:hover {
+                background-color: unset;
+                color: #0d1226;
+                box-shadow: none;
+            }
+         }
+
+            &:hover {
+                transition: .3s;
+                background-color: #0d1226;
+                backdrop-filter: blur(4px);
+                color: #ffffff;
+                box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.15);
+            }
+            border-bottom: 1px solid #0d1226;
+
+
+            .time {
+                display: inline-block;
+                float: right;
+            }
+            .pos {
+                display: inline-block;
+                margin: 0 25px 0 0px;
+            }
+        }
+    }
+}
