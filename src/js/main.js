@@ -31,7 +31,7 @@ function swap(target) {
 	let targetPos = getPosition(target),
 		fixed = selectCurrentFixed(),
 		fixedPos = getPosition(fixed),
-		move = calc(targetPos, fixedPos),
+		move = calc(fixedPos, targetPos),
 		objsPos = leftNTop(target, fixed);
 
 	doSwapMove(target, fixed, move, objsPos);
@@ -62,7 +62,43 @@ function leftNTop(fixed, target) {
 }
 
 function doSwapMove(t, f, move, objsPos) {
+	//MOVE SEMPRE EH LEFT TOP QUE O TARGET VAI ANDAR
+	//RES SEMPRE EH LEFT TOP QUE O FIXED VAI ANDAR
 	let tpos = getPosition(t);
+	tpos.x += objsPos.target.left;
+	tpos.y += objsPos.target.top;
+
+	let fpos = getPosition(f);
+	fpos.x += objsPos.fixed.left;
+	fpos.y += objsPos.fixed.top;
+
+	// console.log(tpos.x - objsPos.target.left, tpos.y - objsPos.target.top);
+
+	console.log(tpos);
+	console.log(fpos);
+
+	let res = calc(tpos, getPosition(f));
+	// let res2 = calc(getPosition(f), fpos);
+
+	console.log(res);
+	console.log(move);
+
+	objsPos.target.left = move.x;
+	objsPos.target.top = move.y;
+	objsPos.fixed.left = res.x;
+	objsPos.fixed.top = res.y;
+
+	t.parentNode.style.setProperty("top", objsPos.target.top + "px");
+	t.parentNode.style.setProperty("left", objsPos.target.left + "px");
+	t.parentNode.classList.toggle("_main");
+
+	f.style.setProperty("top", objsPos.fixed.top + "px");
+	f.style.setProperty("left", objsPos.fixed.left + "px");
+	f.classList.toggle("_main");
+}
+
+/* 
+		let tpos = getPosition(t);
 	tpos.x += objsPos.target.left;
 	tpos.y += objsPos.target.top;
 
@@ -72,14 +108,13 @@ function doSwapMove(t, f, move, objsPos) {
 
 	let res = calc(tpos, getPosition(f));
 	let res2 = calc(getPosition(f), fpos);
-	console.log(res2);
+	console.log(move);
 
 	objsPos.target.left = res2.x;
 	objsPos.target.top = res2.y;
 	objsPos.fixed.left = res.x;
 	objsPos.fixed.top = res.y;
 
-	// console.log(move);
 	t.parentNode.style.setProperty("top", objsPos.target.top + "px");
 	t.parentNode.style.setProperty("left", objsPos.target.left + "px");
 	t.parentNode.classList.toggle("_main");
@@ -87,4 +122,4 @@ function doSwapMove(t, f, move, objsPos) {
 	f.style.setProperty("top", objsPos.fixed.top + "px");
 	f.style.setProperty("left", objsPos.fixed.left + "px");
 	f.classList.toggle("_main");
-}
+	**/
