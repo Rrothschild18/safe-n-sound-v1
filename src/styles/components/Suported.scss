@@ -38,20 +38,19 @@
 			height: 2px;
 			background-color: #000;
 		}
-	}
-	.Row._gutters {
-		padding: 50px;
-		// box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.15);
 		.col {
-			margin-bottom: 40px;
-			opacity: 0.5;
-
+			transition: all 0.5s;
+			left: 0;
+			top: 0;
+			user-select: none;
+			
 			&:hover {
 				opacity: 1;
 
 				&.Card {
 					box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.15);
 					background-color: rgba(74, 234, 231, 0.55);
+					transition: all 0.5s;
 
 					.content {
 						img {
@@ -61,6 +60,59 @@
 						._bright {
 							filter: brightness(0);
 						}
+					}
+				}
+						&._main {
+			background-color: rgba(74, 234, 231, 0.55);
+			z-index: 99;
+			opacity: 1;
+		}
+			}
+		}
+	}
+	.Row._gutters {
+		padding: 50px;
+		// box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.15);
+		transition: all 0.5s;
+		left: 0;
+		top: 0;
+
+		.col {
+			margin-bottom: 40px;
+			opacity: 0.5;
+			transition: all 0.5s;
+			user-select: none;
+
+
+
+			&:hover {
+				opacity: 1;
+
+				&.Card {
+					box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.15);
+					background-color: rgba(74, 234, 231, 0.55);
+					transition: all 0.5s;
+
+					.content {
+						img {
+							filter: grayscale(0);
+							user-select: none;
+						}
+						._bright {
+							filter: brightness(0);
+						}
+					}
+				}
+			}
+
+			&._main {
+				background-color: rgba(74, 234, 231, 0.55);
+				opacity: 1;
+				img {
+					filter: grayscale(0);
+					
+					&._bright {
+						filter: brightness(0);
 					}
 				}
 			}
@@ -78,7 +130,8 @@
 		box-shadow: none;
 		margin-bottom: 100px;
 		z-index: 99;
-
+		opacity: 0.5;
+		
 		&.shadow {
 			box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.15);
 		}
@@ -140,6 +193,7 @@
 		&._main {
 			background-color: rgba(74, 234, 231, 0.55);
 			z-index: 99;
+			opacity: 1;
 		}
 	}
 }
