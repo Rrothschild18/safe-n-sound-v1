@@ -1,0 +1,64 @@
+.Tools {
+    text-align: center;
+    margin-top: 100px;
+    h2 {
+        margin-bottom: 50px;
+    }
+    
+    .Card {
+        padding: 0px;
+        margin: 0;
+        max-width: 330px;
+        border-radius: 5px;
+
+        &:hover {
+            .content {
+                .line {
+                    height: 8px;
+                    transition: all 0.3s;
+                }
+            }
+        }
+        .imgg {
+            border-radius: 5px 5px 0px 0;
+            margin: 0 auto;
+            border: none;
+            display: block;
+            width: 100%;
+            padding: 110px 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .content {
+            padding: 30px;
+            text-align: left;
+
+            .line {
+                position: absolute;
+                display: block;
+                width: 100%;
+                background-color: $light-blue-a;
+                height: 0px;
+                bottom: 0;
+                left: 0;
+                transition: all 0.3s;
+            }
+        }
+
+    }
+    
+    .Button {
+        display: block;
+        width: 100px;
+        text-align: center;
+        margin: 20px auto 0;
+        text-transform: uppercase;
+        border-radius: 30px;
+        background-color: rgba(74, 234, 231, 0.7);
+        &:hover {
+            background-color: $light-blue;
+        }
+    }
+}
