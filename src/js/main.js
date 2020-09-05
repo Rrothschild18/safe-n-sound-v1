@@ -7,7 +7,7 @@ cards.forEach((card) => {
 	card.addEventListener("click", trigger);
 });
 
- function trigger(e) {
+function trigger(e) {
 	swap(e.target.closest('.col._col-3.Card'));
 }
 
@@ -74,5 +74,4 @@ function doSwapMove(t, f, move, objsPos) {
 	f.style.setProperty("top", objsPos.fixed.top + "px");
 	f.style.setProperty("left", objsPos.fixed.left + "px");
 	f.classList.toggle("_main");
-
 }
