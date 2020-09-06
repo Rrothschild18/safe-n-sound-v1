@@ -36,8 +36,32 @@ h1 {
     width: 1vw;
     height: 1vw;
     border: 0.3vw solid;
-	border-color: black transparent transparent black;
+	border-color: $dark-blue-a transparent transparent $dark-blue-a;
+    top: 1.5px;
 	transform: rotate(-45deg);
+	color: #fff;
+	z-index: 20;
+
+	// &:before {
+	// 	content: '';
+	// 	width: 1.5vw;
+	// 	height: 1.5vw;
+	// 	border: 0.6vw solid;
+	// 	border-color: #fff transparent transparent #fff;
+	// 	transform: rotate(-45deg);
+	// 	z-index: -1;
+	// }
+  }
+  .arrow2 {
+	position: absolute;
+    width: 1.2vw;
+    height: 1.2vw;
+	border: 0.4vw solid;
+	border-color: #fff transparent transparent #fff;
+	transform: rotate(-45deg);
+	color: #fff;
+	top: 0;
+	z-index: -20;
   }
   
   
