@@ -47,6 +47,7 @@ function verifyAlbum(req, res, next) {
 
 async function getAlbum(req, res, next) {
 	console.log(req.body.album, req.token.access_token);
+	console.log("body:", req.body)
 	var data;
 
 	const ALBUM_ID = req.body.album;
@@ -72,6 +73,7 @@ async function getAlbum(req, res, next) {
 		twing.render("album.twig", { data, item }).then((output) => {
 			res.end(output);
 		});
+		console.log("data:", data)
 	} catch (e) {
 		var data = {};
 		data.msg = "Album nao encontrado";
