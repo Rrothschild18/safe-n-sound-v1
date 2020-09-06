@@ -2,7 +2,10 @@
 	text-align: center;
 	// background-color: rgba(74, 234, 231, 0.55);
 	padding: 50px 0;
-
+	background-color: $dark-blue;
+	
+	h2 {color: #fff;}
+	
 	.container {
 		.lines {
 			position: absolute;
@@ -10,8 +13,7 @@
 			top: 0;
 			width: 2px;
 			height: 30vh;
-			background-color: #000;
-			margin-left: 30px;
+			background-color: #fff;
 		}
 		.lines-b {
 			position: absolute;
@@ -19,8 +21,7 @@
 			top: 0;
 			width: 30vh;
 			height: 2px;
-			background-color: #000;
-			margin-left: 30px;
+			background-color: #fff;
 		}
 		.lines-c {
 			position: absolute;
@@ -28,7 +29,7 @@
 			bottom: 0;
 			width: 2px;
 			height: 30vh;
-			background-color: #000;
+			background-color: #fff;
 		}
 		.lines-d {
 			position: absolute;
@@ -36,22 +37,21 @@
 			bottom: 0;
 			width: 30vh;
 			height: 2px;
-			background-color: #000;
+			background-color: #fff;
 		}
-	}
-	.Row._gutters {
-		padding: 50px;
-		// box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.15);
 		.col {
-			margin-bottom: 40px;
-			opacity: 0.5;
-
+			transition: all 0.5s;
+			left: 0;
+			top: 0;
+			user-select: none;
+			
 			&:hover {
 				opacity: 1;
 
 				&.Card {
 					box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.15);
-					background-color: rgba(74, 234, 231, 0.55);
+					background-color: #fff;
+					transition: all 0.5s;
 
 					.content {
 						img {
@@ -61,6 +61,62 @@
 						._bright {
 							filter: brightness(0);
 						}
+					}
+				}
+
+				&._main {
+					background-color: #fff;
+					z-index: 99;
+					opacity: 1;
+				}
+			}
+		}
+	}
+	.Row {
+		padding:  30px;
+		margin-top: 100px;
+		// box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.15);
+		transition: all 0.5s;
+		justify-content: space-around;
+		left: 0;
+		top: 0;
+
+		.col {
+			margin: 15px 10px;
+			opacity: 0.5;
+			transition: all 0.5s;
+			user-select: none;
+
+
+
+			&:hover {
+				opacity: 1;
+
+				&.Card {
+					box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.15);
+					background-color: #fff;
+					transition: all 0.5s;
+
+					.content {
+						img {
+							filter: grayscale(0);
+							user-select: none;
+						}
+						._bright {
+							filter: brightness(0);
+						}
+					}
+				}
+			}
+
+			&._main {
+				background-color: #fff;
+				opacity: 1;
+				img {
+					filter: grayscale(0);
+					
+					&._bright {
+						filter: brightness(0);
 					}
 				}
 			}
@@ -76,9 +132,10 @@
 		max-width: 150px;
 		max-height: 150px;
 		box-shadow: none;
-		margin-bottom: 100px;
+		margin-bottom: 60px;
 		z-index: 99;
-
+		opacity: 0.5;
+		
 		&.shadow {
 			box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.15);
 		}
@@ -138,8 +195,9 @@
 		}
 
 		&._main {
-			background-color: rgba(74, 234, 231, 0.55);
+			background-color: #fff;
 			z-index: 99;
+			opacity: 1;
 		}
 	}
 }

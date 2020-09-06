@@ -5,6 +5,8 @@
 	height: 80px;
 	z-index: 999;
 	font-family: "Noto Sans", sans-serif !important;
+	background-color: $dark-blue;
+	color: #fff;
 
 	.content {
 		width: 100%;
@@ -21,18 +23,18 @@
 				height: 30px;
 			}
 
-			&::after {
-				content: "Revo";
-				position: absolute;
-				width: 70%;
-				height: 100%;
-				right: 0;
-				top: 0;
-				background-color: #fff;
-				font-size: 32px;
-				line-height: 1;
-				font-family: "Noto Sans", sans-serif;
-			}
+			// &::after {
+			// 	content: "Revo";
+			// 	position: absolute;
+			// 	width: 70%;
+			// 	height: 100%;
+			// 	right: 0;
+			// 	top: 0;
+			// 	background-color: #fff;
+			// 	font-size: 32px;
+			// 	line-height: 1;
+			// 	font-family: "Noto Sans", sans-serif;
+			// }
 		}
 
 		.Navbar {
@@ -57,7 +59,7 @@
 							content: "";
 							display: block;
 							width: 100%;
-							border-bottom: 1.5px solid $color-text;
+							border-bottom: 1.5px solid #fff;
 						}
 					}
 				}

@@ -8,10 +8,7 @@ cards.forEach((card) => {
 });
 
 function trigger(e) {
-	let t = e.target;
-	if (t.parentNode.classList.contains("content")) t = t.parentNode;
-
-	swap(t);
+	swap(e.target.closest('.col._col-3.Card'));
 }
 
 function selectCurrentFixed() {
@@ -31,7 +28,7 @@ function swap(target) {
 	let targetPos = getPosition(target),
 		fixed = selectCurrentFixed(),
 		fixedPos = getPosition(fixed),
-		move = calc(targetPos, fixedPos),
+		move = calc(fixedPos, targetPos),
 		objsPos = leftNTop(target, fixed);
 
 	doSwapMove(target, fixed, move, objsPos);
@@ -44,7 +41,7 @@ function calc(target, fixed) {
 	return { x: x, y: y };
 }
 
-function leftNTop(fixed, target) {
+function leftNTop(target, fixed) {
 	let targetLeft = target.style.left;
 	let targetTop = target.style.top;
 	let fixedLeft = fixed.style.left;
@@ -62,27 +59,17 @@ function leftNTop(fixed, target) {
 }
 
 function doSwapMove(t, f, move, objsPos) {
-	let tpos = getPosition(t);
-	tpos.x += objsPos.target.left;
-	tpos.y += objsPos.target.top;
+	//MOVE SEMPRE EH LEFT TOP QUE O TARGET VAI ANDAR
+	//RES SEMPRE EH LEFT TOP QUE O FIXED VAI ANDAR
 
-	let fpos = getPosition(t);
-	fpos.x += objsPos.fixed.left;
-	fpos.y += objsPos.fixed.top;
+	objsPos.target.left = Math.round(move.x + objsPos.target.left);
+	objsPos.target.top =  Math.round(move.y + objsPos.target.top);
+	objsPos.fixed.left = Math.round((-1 * move.x)  + objsPos.fixed.left);
+	objsPos.fixed.top = Math.round((-1 * move.y) + objsPos.fixed.top);
 
-	let res = calc(tpos, getPosition(f));
-	let res2 = calc(getPosition(f), fpos);
-	console.log(res2);
-
-	objsPos.target.left = res2.x;
-	objsPos.target.top = res2.y;
-	objsPos.fixed.left = res.x;
-	objsPos.fixed.top = res.y;
-
-	// console.log(move);
-	t.parentNode.style.setProperty("top", objsPos.target.top + "px");
-	t.parentNode.style.setProperty("left", objsPos.target.left + "px");
-	t.parentNode.classList.toggle("_main");
+	t.style.setProperty("top", objsPos.target.top + "px");
+	t.style.setProperty("left", objsPos.target.left + "px");
+	t.classList.toggle("_main");
 
 	f.style.setProperty("top", objsPos.fixed.top + "px");
 	f.style.setProperty("left", objsPos.fixed.left + "px");
