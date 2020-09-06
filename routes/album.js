@@ -9,7 +9,7 @@ let twing = new TwingEnvironment(loader);
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
-	twing.render("artists.twig", req.params).then((output) => {
+	twing.render("album.twig", req.params).then((output) => {
 		res.end(output);
 	});
 });
@@ -17,3 +17,4 @@ router.get("/", function (req, res, next) {
 router.post("/", [sToken.verifyAlbum, sToken.tokenRequest, sToken.getAlbum]);
 
 module.exports = router;
+
