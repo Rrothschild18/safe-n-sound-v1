@@ -6,6 +6,7 @@ const spotifyToken = require("./middlewares/spotify.js");
 const port = process.env.NODE_PORT || 3000;
 const album = require("./routes/album");
 const index = require("./routes/index");
+const bolinho = require("./routes/index");
 
 var app = express();
 
