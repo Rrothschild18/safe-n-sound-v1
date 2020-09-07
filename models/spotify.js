@@ -1,6 +1,6 @@
 const querystring = require("querystring");
 const axios = require("axios").default;
-var mw = require("../middlewares/token.js");
+var mw = require("./token.js");
 
 // TWING
 const { TwingEnvironment, TwingLoaderFilesystem } = require("twing");
