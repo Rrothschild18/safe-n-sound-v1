@@ -11,5 +11,3 @@ function btn_Songs() {
 		b.style.transform = "rotate(270deg)";
 	});
 }
-
-exports.btn_Songs = btn_Songs;

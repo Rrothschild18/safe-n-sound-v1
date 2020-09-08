@@ -8,16 +8,16 @@
         <div class="container">
             <div class="Card">
                 <div class="busca">
-                    <form class="Form" method="POST" id="form">
-                        <h2>Procure seu album do spotify 2</h2>
+                    <form class="Form" method="POST">
+                        <h2>Procure seu album do spotify</h2>
                         <label for="">Digite o ID do album</label>
-                        <input type="text" name="album" placeholder="vAFBjdb2XJCyYp2zlwJDI" />
+                        <input type="text" id='album' name="album" placeholder="vAFBjdb2XJCyYp2zlwJDI"/>
                         {% if data.msg %}
                         <small id="msg">{{data.msg}}</small>
                         {% else  %}
                         <small id="msg">{{data.token}}</small>
                         {% endif %}
-                        <button class="Button" id='submit' type="submit">Busca</button>
+                        <button class="Button" type="submit">Busca</button>
                     </form>
                 </div>
                 <div class="Loading hide">

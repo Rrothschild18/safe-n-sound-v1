@@ -9,5 +9,3 @@ function user_config() {
 
     return credentials;
 }
-
-module.exports = user_config;

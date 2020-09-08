@@ -63,7 +63,7 @@ function js() {
 		.pipe($.concat(pkg.vars.siteJsName))
 		.pipe(
 			$.babel({
-				presets: ["@babel/env"],
+				presets: ["@babel/preset-env"],
 			})
 		)
 		.pipe($.plumber({ errorHandler: onError }))
