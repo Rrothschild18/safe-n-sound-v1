@@ -61,6 +61,7 @@ Artist.prototype.getArtistTop = async function(TOKEN, ID){
         },
     };
 
+    
     try{
         var response = await axios.request(config_artop);
         data = response.data;
