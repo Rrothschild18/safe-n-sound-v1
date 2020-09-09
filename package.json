@@ -3,7 +3,11 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"start": "nodemon app.js"
+		"start": "nodemon rs --delay 1.5 app.js"
+	},
+	"nodemonConfig": {
+		"delay": 1500,
+		"ignore": ["src/*", "public/*"]
 	},
 	"paths": {
 		"src": {

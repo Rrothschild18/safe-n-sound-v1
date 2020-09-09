@@ -1,105 +1,100 @@
-var querystring = require("querystring");
+// var querystring = require("querystring");
 
 
-const credrentils = require("./credentials.js");
-const axios = require("axios").default;
-function load_smoothly(e) {
-	if (e.classList.contains("hide")) {
-		e.classList.remove("hide");
-	} else {
-		e.classList.add("hide");
-	}
+// const credrentils = require("./credentials.js");
+// const axios = require("axios").default;
+function load_smoothly(){ 
+	const e = document.querySelector(".Loading");
+	e.classList.toggle('hide')
 }
-async function all_request(ALBUM_ID) {
+async function all_request(ALBUM_ID, OLD) {
+	load_smoothly();
+	await fetch(`http://localhost:3000/api/album/${ALBUM_ID}`)
+	.then((res) => {
+		try {
+			return res.json()
+		}catch (e) {
+			return e;
+		}
+	})
+	.then((data)=> {
+		const albumPhoto = document.querySelector("#album-img"),
+				artist = document.querySelector("#artist"),
+				albumType = document.querySelector("#album-type"),
+				albumName = document.querySelector("#album-name"),
+				albumRelease = document.querySelector("#album-release"),
+				result = document.querySelector("#result-request");
 
-	console.log('teste')
-	try {
-		const data = await fetch(`http://localhost/api/album/${ALBUM_ID}`)
+		load_smoothly()
+		
+		albumPhoto.src = data.images[1].url;
+		artist.textContent = data.artists[0].name;
+		albumType.textContent = data.album_type;
+		albumName.textContent = data.name;
+		albumRelease.textContent = data.release_date;
+		
+		result.classList.toggle('hide')
 
-		data.then(console.log('hello'))
-	}catch(e) {
-		console.log(e)
-	}
-	// axios.get(`http://localhost/api/album/${ALBUM_ID}`).then(console.log(1))
+		if(result.classList.contains('hide'))
+			result.classList.toggle('hide')
+		
+		return data.tracks.items;	
+	})
+	.then((musicas)=> {
+		const list = document.querySelector("#musicas");
+		const songs = document.querySelector("#songs");	 
+		const e = document.querySelector("#result-request");
 
-	// 	axios
-	// 		.request(config_request)
-	// 		.then((resolve) => {
-	// 			//var button = document.querySelector('#btn');
-	// 			var albumPhoto = document.querySelector("#album-img");
-	// 			var artist = document.querySelector("#artist");
-	// 			var albumType = document.querySelector("#album-type");
-	// 			var albumName = document.querySelector("#album-name");
-	// 			var albumRelease = document.querySelector("#album-release");
+		songs.addEventListener('click', (e) => {
+			const btn = e.target;
 
-	// 			const data = resolve.data;
+			if(list.classList.contains('hide'))
+				btn.style.transform = "rotate(90deg)";
+			if(!list.classList.contains('hide'))
+				btn.style.transform = "rotate(270deg)";
+			
+			list.classList.toggle("hide");
+		})
 
-	// 			albumPhoto.src = data.images[1].url;
-	// 			artist.textContent = data.artists[0].name;
-	// 			albumType.textContent = data.album_type;
-	// 			albumName.textContent = data.name;
-	// 			albumRelease.textContent = data.release_date;
+		if (!list.classList.contains("hide")) {
+			if ((ALBUM_ID = !""))
+				if (list.getElementsByTagName("li").length > 3)
+					while (list.childNodes.length > 3) list.removeChild(list.lastChild);
+		}
 
-	// 			var e = document.querySelector(".Loading");
-	// 			load_smoothly(e);
+		let cont = 0;
 
-	// 			var e = document.querySelector(".result");
+		musicas.forEach((e) => {
+			let list_item = list.firstElementChild.cloneNode(true);
+			list_item.querySelector(".pos").textContent = ++cont;
+			list_item.querySelector("#title").textContent = e.name;
+			list_item.querySelector(".time").textContent = timing(e.duration_ms);
 
-	// 			if (e.classList.contains("hide")) {
-	// 				load_smoothly(e);
-	// 			} else {
-	// 			}
+			list.appendChild(list_item);
+		});
+		
+	})
+	.catch((error) => {
+		setTimeout(() => {
+			var ALBUM_ID = document.querySelector("#album").value;
+			var msgg = `Não foi possivel buscar o album pelo id : `;
+			var msg = document.createTextNode(msgg);
+			var span = document.createElement("span");
+			var x = document.querySelector("#msg");
 
-	// 			return data.tracks.items;
-	// 		})
-	// 		.then((musicas) => {
-	// 			var list = document.querySelector("#musicas");
-	// 			console.log(musicas);
-	// 			var e = document.querySelector("#result-request");
+			if (x.textContent || x.innerHTML) {
+				x.textContent = msgg;
+				span.append(ALBUM_ID);
+				x.append(span);
+			} else {
+				x.appendChild(msg);
+				span.append(ALBUM_ID);
+				x.append(span);
+			}
 
-	// 			if (list.classList.contains("hide") == true) {
-	// 			} else {
-	// 				if ((ALBUM_ID = !""))
-	// 					if (list.getElementsByTagName("li").length > 3)
-	// 						while (list.childNodes.length > 3) list.removeChild(list.lastChild);
-	// 			}
-
-	// 			cont = 0;
-
-	// 			musicas.forEach((e) => {
-	// 				var list_item = list.firstElementChild.cloneNode(true);
-
-	// 				list_item.querySelector(".pos").textContent = ++cont;
-	// 				list_item.querySelector("#title").textContent = e.name;
-	// 				list_item.querySelector(".time").textContent = timing(e.duration_ms);
-
-	// 				list.appendChild(list_item);
-	// 			});
-	// 		})
-	// 		.catch((error) => {
-	// 			var e = document.querySelector(".Loading");
-	// 			load_smoothly(e);
-
-	// 			setTimeout(() => {
-	// 				var ALBUM_ID = document.querySelector("#album").value;
-	// 				var msgg = `Não foi possivel buscar o album pelo id : `;
-	// 				var msg = document.createTextNode(msgg);
-	// 				var span = document.createElement("span");
-	// 				var x = document.querySelector("#msg");
-
-	// 				if (x.textContent || x.innerHTML) {
-	// 					x.textContent = msgg;
-	// 					span.append(ALBUM_ID);
-	// 					x.append(span);
-	// 				} else {
-	// 					x.appendChild(msg);
-	// 					span.append(ALBUM_ID);
-	// 					x.append(span);
-	// 				}
-	// 			}, 500);
-	// 			console.log(error);
-	// 		});
-	// });
+		}, 500);
+		console.log(error);
+	});
 }
 
 /*Return Music duration_ms to Min:Sec */
