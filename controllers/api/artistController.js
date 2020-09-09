@@ -24,3 +24,20 @@ exports.getArtist = async (req,res)=>{
         res.json(e);
     }
 }
+
+exports.getArtistTop = async(req, res)=>{
+    const ID = req.params.id;
+    if(!artist.validUserInput(ID)){
+        res.json({erro:'Bad Request'});
+    }
+
+    try{
+        const TOKEN = await artist.tokenRequest();
+        const data = await artist.getArtistTop(TOKEN, ID);
+        res.json(data);
+    }catch(err){
+        res.json(err);
+    }
+
+}
+

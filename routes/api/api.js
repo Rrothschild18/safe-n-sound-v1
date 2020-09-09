@@ -17,4 +17,20 @@ router.get("/album/:id", album.getAlbum);
 //Artist routes
 router.get("/artist", artist.showData);
 router.get("/artist/:id", artist.getArtist);
+router.get("/artist/:id/toptracks", artist.getArtistTop);
+
+//if(router.get)
+
+// router.get("/artist/:id", (req,res)=>{
+//     const ID = req.params.id;
+//     if(ID == 'toptracks'){
+//         artist.getArtistTop
+//     }else{
+//         artist.getArtist
+//     }
+// });
+
+
+
+
 module.exports = router;

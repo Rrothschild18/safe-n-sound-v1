@@ -26,6 +26,7 @@ Artist.prototype.showData = function(){
     return data;
 }
 
+//Return Astist's information
 Artist.prototype.getArtist = async function(TOKEN, ID){
     const ARTIST_ID = ID;
     const ACESS_TOKEN = TOKEN;
@@ -45,6 +46,30 @@ Artist.prototype.getArtist = async function(TOKEN, ID){
     }catch(e){
         return e;
     }
+}
+
+//Return Artist's Top Tracks
+Artist.prototype.getArtistTop = async function(TOKEN, ID){
+    const ARTIST_ID = ID;
+    const ACESS_TOKEN = TOKEN;
+
+    const config_artop = {
+        method:"get" ,
+        url: `https://api.spotify.com/v1/artists/${ARTIST_ID}/top-tracks?country=US`,
+        headers:{
+            Authorization: "Bearer " + ACESS_TOKEN,
+        },
+    };
+
+    try{
+        var response = await axios.request(config_artop);
+        data = response.data;
+        return data;
+    }catch(e){
+        return e;
+    }
+
+
 }
 
 Artist.prototype.tokenRequest = async function(param){
