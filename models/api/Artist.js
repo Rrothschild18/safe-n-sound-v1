@@ -32,7 +32,7 @@ Artist.prototype.getArtist = async function(TOKEN, ID){
 
     const config_art ={
         method:"get",
-        url: "https://api.spotify.com/v1/artists/" + ARTIST_ID,
+        url: `https://api.spotify.com/v1/artists/${ARTIST_ID}`,
         headers:{
             Authorization: "Bearer " + ACESS_TOKEN,
         },
@@ -41,11 +41,8 @@ Artist.prototype.getArtist = async function(TOKEN, ID){
     try{
         var response = await axios.request(config_art);
         data = response.data;
-
         return data;
     }catch(e){
-        delete e.config
-        delete e.stack;
         return e;
     }
 }
@@ -64,6 +61,7 @@ Artist.prototype.tokenRequest = async function(param){
 
     try{
         var response = await axios.request(config);
+        return response.data.access_token;
     }catch(err){
         console.log(err);
         return err;
