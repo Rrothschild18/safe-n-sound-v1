@@ -1,7 +1,6 @@
 const querystring = require("querystring");
 const axios = require("axios").default;
 const at = require('../token.js');
-const {throws}  = require("assert");
 
 const Artist = function(){
     this.data;
@@ -61,7 +60,6 @@ Artist.prototype.getArtistTop = async function(TOKEN, ID){
         },
     };
 
-    
     try{
         var response = await axios.request(config_artop);
         data = response.data;
