@@ -7,82 +7,9 @@
     color: #0d1226;
     background-color: #fff;
 
-    h1 {
-        display: block;
-        text-align: center;
-        margin: 40px 0;
-    }
-    
-    .imgg {
-        padding: 20px;
-        border: 3px solid #000;
-        max-width: 347px;
-        max-height: 347px;
-        
-        img {
-            display: inline-block;
-    
-        }
-
-        .lines {
-            
-            &::before{
-                content: '';
-                display: block;
-                background-color: #fff;
-                height: 180px;
-                width: 3px;
-                top: 150px;
-                position: absolute;
-                right: -23px;
-                z-index: 3;
-            
-            }
-            
-            &::after{
-                content: '';
-                display: block;
-                background-color: #fff;
-                height: 3px;
-                width: 74.3%;
-                bottom: -324px;
-                position: absolute;
-                left: 98px;
-                z-index: 3;
-            }
-
-            &._reverse {
-                &::before{
-                    content: '';
-                    display: block;
-                    background-color: #fff;
-                    height: 180px;
-                    width: 3px;
-                    top: -21px;
-                    position: absolute;
-                    left: -23px;
-                    z-index: 3;
-                
-                }
-                
-                &::after{
-                    content: '';
-                    display: block;
-                    background-color: #fff;
-                    height: 3px;
-                    width: 74.3%;
-                    bottom: 20px;
-                    position: absolute;
-                    left: -23px;
-                    z-index: 3;
-                }
-            }
-        }
-        
-    }
-
     .arroww {
         text-align: center;
+        float: right;
         i {
             display: inline-block;
             transform: rotate(270deg);
@@ -96,7 +23,7 @@
             cursor: pointer;
             
             &:hover{
-                background-color: #0d1226;
+                background-color: $dark-blue-a;
                 backdrop-filter: blur(4px);
                 color: #ffffff;
             }
@@ -112,31 +39,40 @@
 
     .hide {
         pointer-events: none;
-        max-height: 0;
+        max-height: 0px;
         transition: max-height 1s ease-in-out;
     }
+    ul{
+        &.hide{
+            max-height: 70px;
+        }
+    }
+
 
     .content {
-        padding: 0 10px 10px;
         margin-bottom: 70px;
-        
-        .conteudo {
+
+        .Row {
+            padding: 40px 0px;
+            align-content: center;
+            align-items: center;
+        }
+        .img {
+            display: inline-block;
+        }
+        .sobre {
             display: block;
-            margin: 0 auto;
             
-            .sobre {
-                border-radius: 4px;
-                display: block;
-                margin: 50px auto;
-                padding: 30px 40px;
-                box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.15);
-                
-                h3 {
-                    
-                    text-align: center;
-                }
+            h3 {
+                    text-align: left;
             }
         }
 
+        .Line {
+            &:before {
+                width: 100%;
+                margin-bottom: 0;
+            }
+        }
     }
 }

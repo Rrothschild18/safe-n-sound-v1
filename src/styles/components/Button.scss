@@ -16,6 +16,14 @@
         background-color: #fff;
         color: $dark-blue-a;
     }
+    &._is-search{
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        width: 30px;
+        float: right;
+        background-color: $dark-blue-a;
+    }
 
     &:hover {
         &._is-primary {

@@ -1,9 +1,4 @@
 .Form {
-    .Button {
-        display: block;
-        margin: 30px auto;
-        width: 200px;
-    }
     input {
         margin-bottom: 10px;
     }
@@ -19,4 +14,46 @@
             text-decoration: underline;
         }
     }
+
+
+    &._search {
+
+        input{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            margin-bottom: 0;
+            border: none;
+            &:-webkit-autofill {
+                -webkit-box-shadow: 0 0 0px 1000px transparent inset !important; 
+            }
+        }
+        .Button {
+            position: absolute;
+            right: 9px;
+            background-color: transparent;
+            i {
+                font-size: 23px;
+                color: $dark-blue-a;
+            }
+        }
+    
+        .input{
+            display: inline-flex;
+            padding: 10px;
+            align-content: center;
+            align-items: center;
+            width: 100%;
+            height: 50px;
+            padding: 0;
+            border: 1px solid #d4d4d4;
+            border-radius: 4px;
+            background-color: #fff;
+            font-size: 14px;
+            outline: none;
+            box-shadow: none;
+        }
+
+    } 
 }

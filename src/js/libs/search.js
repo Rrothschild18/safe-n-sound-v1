@@ -9,28 +9,31 @@ async function all_request(ALBUM_ID, OLD) {
 		try {
 			return res.json()
 		}catch (e) {
+			load_smoothly();
 			return e;
 		}
 	})
 	.then((data)=> {
-		const albumPhoto = document.querySelector("#album-img"),
-				artist = document.querySelector("#artist"),
-				albumType = document.querySelector("#album-type"),
-				albumName = document.querySelector("#album-name"),
-				albumRelease = document.querySelector("#album-release"),
-				result = document.querySelector("#result-request");
+		const albumPhoto    = document.querySelector("#album-img"),
+			  artist 	    = document.querySelector("#artist"),
+			  albumType     = document.querySelector("#album-type"),
+			  albumName     = document.querySelector("#album-name"),
+			  albumRelease  = document.querySelector("#album-release"),
+			  result        = document.querySelector("#result-request");
 
+		//Display Loading Animation
 		load_smoothly()
+		//Display Sucess Message
 		showSucces()
 		
+
 		albumPhoto.src = data.images[1].url;
 		artist.textContent = data.artists[0].name;
 		albumType.textContent = data.album_type;
 		albumName.textContent = data.name;
 		albumRelease.textContent = data.release_date;
-		
-		result.classList.toggle('hide')
 
+		
 		if(result.classList.contains('hide'))
 			result.classList.toggle('hide')
 		
@@ -38,37 +41,14 @@ async function all_request(ALBUM_ID, OLD) {
 	})
 	.then((musicas)=> {
 		const list = document.querySelector("#musicas");
-		const songs = document.querySelector("#songs");	 
-		const e = document.querySelector("#result-request");
+		const songs = document.querySelector("#songs");	
 
-		songs.addEventListener('click', (e) => {
-			const btn = e.target;
+		songs.addEventListener('click', showHideSongs)
 
-			if(list.classList.contains('hide'))
-				btn.style.transform = "rotate(90deg)";
-			if(!list.classList.contains('hide'))
-				btn.style.transform = "rotate(270deg)";
-			
-			list.classList.toggle("hide");
-		})
-
-		if (!list.classList.contains("hide")) {
-			if ((ALBUM_ID = !""))
-				if (list.getElementsByTagName("li").length > 3)
-					while (list.childNodes.length > 3) list.removeChild(list.lastChild);
-		}
-
-		let cont = 0;
-
-		musicas.forEach((e) => {
-			let list_item = list.firstElementChild.cloneNode(true);
-			list_item.querySelector(".pos").textContent = ++cont;
-			list_item.querySelector("#title").textContent = e.name;
-			list_item.querySelector(".time").textContent = timing(e.duration_ms);
-
-			list.appendChild(list_item);
-		});
-		
+		//Romove Childs if filled
+		checkList(list)
+		//Fill musicas 
+		fillList(musicas)		
 	})
 	.catch((error) => {
 		console.log(error);
@@ -80,11 +60,49 @@ async function all_request(ALBUM_ID, OLD) {
 /*Return Music duration_ms to Min:Sec */
 function timing(ms) {
 	ms = 1000 * Math.round(ms / 1000); // round to nearest second
-
+	var final;
 	var d = new Date(ms);
-	var final = d.getUTCMinutes() + ":" + d.getUTCSeconds();
 
-	//console.log(final);
-
+	d.getUTCSeconds() < 10
+		? (final = d.getUTCMinutes() + ":0" + d.getUTCSeconds())
+		: (final = d.getUTCMinutes() + ":" + d.getUTCSeconds());
 	return final;
+}
+//Recieve a List of songs
+function checkList(l){
+
+	if(l.childNodes.length > 3)
+		while (l.childNodes.length > 3) 
+			l.removeChild(l.lastChild);
+	
+}
+//Fill a list of Songs
+function fillList(musicas){
+	const list = document.querySelector("#musicas");
+
+	let cont = 0;
+
+	musicas.forEach((m) => {
+		let list_item = list.firstElementChild.cloneNode(true);
+		list_item.querySelector(".pos").textContent = ++cont;
+		list_item.querySelector("#title").textContent = m.name;
+		list_item.querySelector(".time").textContent = timing(m.duration_ms);
+
+		list.appendChild(list_item);
+	});
+	
+}
+function showHideSongs(e){
+	const list = document.querySelector("#musicas");
+	const btn = e.target;
+	console.log(e)
+
+	if(list.classList.contains('hide'))
+		btn.style.transform = "rotate(90deg)";
+	else {
+		btn.style.transform = "rotate(270deg)";
+	}
+	
+	list.classList.toggle("hide");
+
 }

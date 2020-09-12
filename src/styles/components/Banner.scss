@@ -50,6 +50,11 @@
 	}
 
 	&._album {
-		padding: 0;
+		padding: 0 0 0 0;
+		
+		&:before {
+			background-image: none;
+			background-color: #fff;
+		}
 	}
 }

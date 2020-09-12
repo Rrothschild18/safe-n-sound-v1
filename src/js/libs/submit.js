@@ -1,19 +1,19 @@
 
 const showError = (msg) => {
-	const ALBUM_ID = document.querySelector("#album")
+	const DIV = document.querySelector(".input")
 	let message = document.querySelector("#msg");
 
-	ALBUM_ID.style.borderColor = 'red';
+	DIV.style.borderColor = 'red';
 	message.style.color = 'red';
 	message.innerText = ''+ msg + '';
 
 }
 const showSucces = () => {
-	const ALBUM_ID = document.querySelector("#album")
+	const DIV = document.querySelector(".input")
 	let message = document.querySelector("#msg");
 	let msg = 'Success xD'
 
-	ALBUM_ID.style.borderColor = 'green';
+	DIV.style.borderColor = 'green';
 	message.style.color = 'green';
 	message.innerText = msg;
 }
@@ -24,7 +24,8 @@ try {
 	
 	form.addEventListener("submit", (e) => {
 		e.preventDefault();
-		const ALBUM_ID = form.querySelector("#album").value;
+		let ALBUM_ID = form.querySelector("#album").value;
+		ALBUM_ID = ALBUM_ID.replace(/\W/gi, '')
 		
 		console.log(ALBUM_ID)
 		if(verifyData(ALBUM_ID, OLD_ALBUM_ID)) 

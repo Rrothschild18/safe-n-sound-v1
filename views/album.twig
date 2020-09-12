@@ -8,16 +8,18 @@
         <div class="container">
             <div class="Card">
                 <div class="busca">
-                    <form class="Form" method="POST">
+                    <form class="Form _search" method="POST">
                         <h2>Procure seu album do spotify</h2>
                         <label for="">Digite o ID do album</label>
-                        <input type="text" id='album' name="album" placeholder="vAFBjdb2XJCyYp2zlwJDI"/>
+                        <div class="input">
+                            <input type="text" id='album' name="album" placeholder="vAFBjdb2XJCyYp2zlwJDI"/> 
+                            <button class="Button _is-search" type="submit"><i class="icon-search"></i></button>
+                        </div>
                         {% if data.msg %}
                         <small id="msg">{{data.msg}}</small>
                         {% else  %}
                         <small id="msg">{{data.token}}</small>
                         {% endif %}
-                        <button class="Button" type="submit">Busca</button>
                     </form>
                 </div>
                 <div class="Loading hide">
@@ -27,42 +29,42 @@
                     </div>
                 </div>
                 <div class="result hide" id="result-request">
-                    <h1 id="album-name"></h1>
                     <div class="Row">
-                        <div class="col _col-12">
+                        <div class="col">
                             <div class="content">
+                                <div class="Line"></div>
                                 <div class="Row">
-                                    <div class="imgg">
-                                        <div class="lines"></div>
-                                        <div class="lines _reverse"></div>
-                                        <img src="{{data.images[0].url}}" id="album-img" download="" alt="Capa Album" />
+                                    <div class="col _col-4">
+                                        <img class="img" src="{{data.images[0].url}}" id="album-img" download="" alt="Capa Album" />
                                     </div>
-                                    <div class="conteudo">
-                                        <div class="sobre">
-                                            <h3>Sobre</h3>
-                                            <ul class="List">
-                                                <li>
-                                                    Artista
-                                                    <span id="artist">{{data.artists[0].name}}</span>
-                                                </li>
-                                                <li>
-                                                    Categoria
-                                                    <span id="album-type">{{data.album_type}}</span>
-                                                </li>
-                                                <li>
-                                                    Lancamento
-                                                    <span id="album-release">{{data.release_date}}</span>
-                                                </li>
-                                            </ul>
+                                    <div class="col _col-8">
+                                        <div class="conteudo">
+                                            <div class="sobre">
+                                                <h3 id="album-name"></h3>
+                                                <ul class="List">
+                                                    <li>
+                                                        Album by -
+                                                        <span id="artist">{{data.artists[0].name}}</span>
+                                                    </li>
+                                                    <li>
+                                                        Categorie -
+                                                        <span id="album-type">{{data.album_type}}</span>
+                                                    </li>
+                                                    <li>
+                                                        Release -
+                                                        <span id="album-release">{{data.release_date}}</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="Line"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="Line"></div>
                     <div class="Musicas">
-                        <h2>Musicas do Album</h2>
+                        <h2>Musicas</h2>
                         <div class="arroww">
                             <i id="songs">></i>
                         </div>

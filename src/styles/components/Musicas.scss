@@ -5,13 +5,16 @@
     color: #0d1226;
     
     h2 {
-        text-align: center;
+        text-align: left;
+        display: inline-block;
     }
     
     ul {
-        list-style: none;
+        margin: 0;
+        width: 100%;
         opacity: 1;
-        overflow:hidden;
+        list-style: none;
+        overflow: hidden;
         max-height: 1000px;
         transition: max-height 1s ease-in-out;
 
@@ -21,19 +24,17 @@
          &:first-child {
             &:hover {
                 background-color: unset;
-                color: #0d1226;
+                color: #000;
                 box-shadow: none;
             }
          }
 
             &:hover {
-                transition: .3s;
-                background-color: #0d1226;
+                background-color: $dark-blue-a;
                 backdrop-filter: blur(4px);
                 color: #ffffff;
-                box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.15);
             }
-            border-bottom: 1px solid #0d1226;
+            border-bottom: 1px solid $dark-blue-a;
 
 
             .time {
@@ -45,5 +46,8 @@
                 margin: 0 25px 0 0px;
             }
         }
+    }
+    .arrow {
+        text-align: right;
     }
 }

@@ -1,34 +1,17 @@
 .List {
     list-style: none;
     margin: 0;
-    
-    :last-child {
-        padding-right: 0;
-
-    }
+    max-height: 70px;
     
     li {
-        padding: 15px 40px 15px 0;
-        font-weight: 600;
-        display: inline-block;
-        text-align: center;
+        font-weight: normal;
+        display: block;
+        text-align: left;
 
         span {
-
-            &::before{
-                content: '';
-                position: relative;
-                height: 2px;
-                display: block;
-                width: 20px;
-                margin: 10px auto;
-                background-color: #0d1226;
-            }
-
-            margin-top: 10px;
-            font-weight: normal;
+            font-weight: bold;
             text-transform: capitalize;
-            display: block;
+            display: inline-block;
         }
     }
 }
