@@ -1,10 +1,12 @@
 const gulp = require("gulp");
 const pkg = require("./package.json");
+const browserify = require('browserify')
+const source = require('vinyl-source-stream')
+const buffer = require('vinyl-buffer');
 const $ = require("gulp-load-plugins")({
 	pattern: ["*"],
 	scope: ["devDependencies"],
 });
-const { EventEmitter } = require("events");
 
 const onError = (err) => {
 	console.log(err);
@@ -58,23 +60,19 @@ function css() {
 
 function js() {
 	$.fancyLog("-> Building js");
-	return gulp
-		.src(pkg.globs.distJs)
-		.pipe($.concat(pkg.vars.siteJsName))
-		.pipe(
-			$.babel({
-				presets: ["@babel/preset-env"],
-			})
-		)
-		.pipe($.plumber({ errorHandler: onError }))
-		.pipe($.if(["*.js", "!*.min.js"], $.uglify()))
-		.pipe($.if(["*.js", "!*.min.js"], $.rename({ suffix: ".min" })))
-		.pipe($.header(banner, { pkg: pkg }))
-		.pipe($.sourcemaps.write("./"))
-		.pipe($.size({ gzip: true, showFiles: true }))
-		.pipe(gulp.dest(pkg.paths.build.js))
-		.pipe($.filter("**/*.js"))
-		.pipe($.livereload());
+	return browserify(pkg.globs.distJs)
+	.bundle()
+	.pipe(source('app.js'))
+	.pipe(buffer())
+	.pipe($.plumber({ errorHandler: onError }))
+	.pipe($.if(["*.js", "!*.min.js"], $.uglify()))
+	.pipe($.if(["*.js", "!*.min.js"], $.rename({ suffix: ".min" })))
+	.pipe($.header(banner, { pkg: pkg }))
+	.pipe($.sourcemaps.write("./"))
+	.pipe($.size({ gzip: true, showFiles: true }))
+	.pipe(gulp.dest(pkg.paths.build.js))
+	.pipe($.filter("**/*.js"))
+	.pipe($.livereload());
 }
 
 function imagemin() {

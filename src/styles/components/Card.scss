@@ -7,6 +7,11 @@
     color: #0d1226;
     background-color: #fff;
 
+    .imgg {
+        &._hue{
+            filter: hue-rotate(165deg);
+        }
+    }
     .arroww {
         text-align: center;
         float: right;

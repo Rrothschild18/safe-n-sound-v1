@@ -5,6 +5,8 @@ const spotifyToken = require("./models/spotify.js");
 
 const port = process.env.NODE_PORT || 3000;
 const album = require("./routes/album");
+const artists = require("./routes/artists");
+const transfer = require("./routes/transfer");
 const index = require("./routes/index");
 const API = require("./routes/api/api");
 
@@ -16,6 +18,8 @@ app.use(express.static(__dirname + "/public"));
 
 app.use("/", index);
 app.use("/album", album);
+app.use("/artists", artists);
+app.use("/transfer", transfer);
 app.use("/api", API);
 
 

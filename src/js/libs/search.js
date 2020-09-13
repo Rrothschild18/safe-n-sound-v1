@@ -92,6 +92,7 @@ function fillList(musicas){
 	});
 	
 }
+//Animation to Songs
 function showHideSongs(e){
 	const list = document.querySelector("#musicas");
 	const btn = e.target;

@@ -50,11 +50,21 @@
 	}
 
 	&._album {
-		padding: 0 0 0 0;
-		
-		&:before {
-			background-image: none;
-			background-color: #fff;
+		padding: 10px 0 210px;
+		&::before {
+			background-image: url(/assets/images/album.png);
+		}
+	}
+	&._transfer{
+		padding: 500px 0;
+		&::before {
+			background-image: url(/assets/images/transfer.jpg);
+		}
+	}
+	&._artists{
+		padding: 10px 0 210px;
+		&::before {
+			background-image: url(/assets/images/artists2.jpg);
 		}
 	}
 }
