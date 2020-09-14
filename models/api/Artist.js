@@ -71,6 +71,54 @@ Artist.prototype.getArtistTop = async function(TOKEN, ID){
 
 }
 
+//Return Artist's Albuns
+Artist.prototype.getArtistAlbum = async function(TOKEN, ID){
+    const ARTIST_ID = ID;
+    const ACESS_TOKEN = TOKEN;
+
+    const config ={
+        method:"get",
+        url:`https://api.spotify.com/v1/artists/${ARTIST_ID}/albums`,
+        headers:{
+            Authorization: "Bearer " + ACESS_TOKEN,
+        },
+    };
+
+    try{
+        var response = await axios.request(config);
+        data = response.data;
+        return data;
+    }catch(err){
+        delete err.config
+        delete err.stack;
+        return err;
+    }
+
+}
+
+//Return Artist's Related Artists
+
+Artist.prototype.getArtistRelated = async function(TOKEN, ID){
+    const ARTIST_ID = ID;
+    const ACCESS_TOKEN = TOKEN;
+
+    const config = {
+        method: "get",
+        url: `https://api.spotify.com/v1/artists/${ARTIST_ID}/related-artists`,
+        headers:{
+            Authorization: "Bearer " + ACCESS_TOKEN,
+        },
+    };
+
+    try{
+        var response = await axios.request(config);
+        data = response.data;
+        return data;
+    }catch(e){
+        return e;
+    }
+}
+
 Artist.prototype.tokenRequest = async function(param){
     var x = at();
     const config ={
