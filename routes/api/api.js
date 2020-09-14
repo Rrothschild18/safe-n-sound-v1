@@ -18,5 +18,6 @@ router.get("/album/:id", album.getAlbum);
 router.get("/artist", artist.showData);
 router.get("/artist/:id", artist.getArtist);
 router.get("/artist/:id/toptracks", artist.getArtistTop);
-
+router.get("/artist/:id/artistalbum", artist.getArtistAlbum);
+router.get("/artist/:id/artist-related", artist.getArtistRelated);
 module.exports = router;

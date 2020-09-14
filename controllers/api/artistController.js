@@ -41,3 +41,30 @@ exports.getArtistTop = async(req, res)=>{
 
 }
 
+exports.getArtistAlbum = async(req, res)=>{
+    const ID = req.params.id;
+    if(!artist.validUserInput(ID)){
+        res.json({erro:'Bad Request'});
+    }
+    try{
+        const TOKEN = await artist.tokenRequest();
+        const data  = await artist.getArtistAlbum(TOKEN, ID);
+        res.json(data);
+    }catch(e){
+        res.json(e);
+    }
+}
+
+exports.getArtistRelated = async(req,res)=>{
+    const ID = req.params.id;
+    if(!artist.validUserInput(ID)){
+        res.json({erro: 'Bad Request'});
+    }
+    try{
+        const TOKEN = await artist.tokenRequest();
+        const data = await artist.getArtistRelated(TOKEN, ID);
+        res.json(data);
+    }catch(err){
+        res.json(err);
+    }
+}
