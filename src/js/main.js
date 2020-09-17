@@ -1,3 +1,4 @@
+import { format } from "morgan";
 import Swap from "./animations/swap.js";
 import Submit from "./functions/Submit.js";
 
@@ -10,8 +11,6 @@ try {
 
 try {
   const myForm = document.querySelector("#test");
-  myForm.addEventListener("submit", (e) => e.preventDefault());
-
   const submitAlbum = new Submit(myForm, {
     fields: {
       userName: {
@@ -32,34 +31,31 @@ try {
       },
       userEmail: {
         notEmpty: {
-          message: "The password is required",
+          message: "The E-mail is required",
         },
-        stringLength: {
-          min: 8,
-          message: "The password must have at least 8 characters",
-        },
-        emailInput: {
-          message: "This not an e-mail",
+        regexp: {
+          regexp: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+          message: "Please enter a valid E-mail",
         },
       },
       userAge: {
         notEmpty: {
-          message: "The password is required",
+          message: "The Age is required",
         },
         inputBetween: {
-          message: "The password is required",
-          value1: 10,
-          value2: 20,
+          message: "Age must be between 10 - 20",
+          min: 10,
+          max: 20,
         },
       },
       userSpec: {
         notEmpty: {
-          message: "The password is required",
+          message: "The Specility is required",
         },
       },
       albumID: {
         notEmpty: {
-          message: "The password is required",
+          message: "The AlbumID is required",
         },
         stringLength: {
           min: 6,
@@ -74,7 +70,20 @@ try {
         },
       },
     },
-  }).init();
+  });
+
+  let albumValidData = {};
+
+  myForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (submitAlbum.validForm()) {
+      albumValidData = submitAlbum.getData();
+      console.log(albumValidData);
+    }
+    if (!submitAlbum.validForm()) {
+      e.preventDefault();
+    }
+  });
 } catch (e) {
   console.log(e);
 }
