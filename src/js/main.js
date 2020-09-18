@@ -1,4 +1,4 @@
-import { format } from "morgan";
+import Label from "./animations/label.js";
 import Swap from "./animations/swap.js";
 import Submit from "./functions/Submit.js";
 
@@ -11,6 +11,7 @@ try {
 
 try {
   const myForm = document.querySelector("#test");
+  const label = new Label(myForm).init();
   const submitAlbum = new Submit(myForm, {
     fields: {
       userName: {

@@ -11,8 +11,21 @@
     }
   }
   label {
-    display: block;
     margin-bottom: 10px;
+    position: absolute;
+    top: 6px;
+    left: 14px;
+    transition: all 0.3s;
+    background-color: transparent;
+    color: rgba(78, 78, 78, 0.8);
+
+    &.move {
+      top: -12px;
+      background-color: #fff;
+      transition: all 0.3s;
+      padding: 0 4px;
+      font-size: 14px;
+    }
   }
   small {
     display: inline-block;
@@ -21,6 +34,10 @@
     span {
       text-decoration: underline;
     }
+  }
+
+  .input {
+    margin-bottom: 30px;
   }
 
   &._search {
