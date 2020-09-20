@@ -3,110 +3,81 @@
 {% block conteudo %}
 <div class="Banner _album">
 </div>
-    <section class="Albuns">
-        <div class="container">
-            <div class="Card">
-                <div class="busca">
-                    <form class="Form _search" method="POST" id="album">
-                        <h2>Procure seu album do spotify</h2>
-                        <label for="">Digite o ID do album</label>
-                        <div class="input">
-                            <input type="text" id='albumInput' name="album" placeholder="vAFBjdb2XJCyYp2zlwJDI"/> 
-                            <button class="Button _is-search" type="submit"><i class="icon-search"></i></button>
-                        </div>
-                        {% if data.msg %}
-                        <small id="msg">{{data.msg}}</small>
-                        {% else  %}
-                        <small id="msg">{{data.token}}</small>
-                        {% endif %}
-                    </form>
-
-                    <form class="Form" method="POST" id="test">
-                        <h2>TESTE</h2>
-                        <div class="input">
-                            <label for="userName">Username</label>
-                            <input type="text" id="userName" name="userName" /> 
-                        </div>
-                        <div class="input">
-                            <label for="userEmail">Email</label>
-                            <input type="email" id="userEmail" name="userEmail" /> 
-                        </div>
-                        <div class="input">
-                            <label for="userAge">Age</label>
-                            <input type="number" id="userAge" name="userAge" /> 
-                        </div>
-                        <div class="input">
-                            <label for="userSpec">Especiality</label>
-                            <input type="text" id="userSpec" name="userSpec" /> 
-                        </div>
-                        <div class="input">
-                            <label for="albumID">Album ID</label>
-                            <input type="text" id="albumID" name="albumID" /> 
-                        </div>
-                        <button class='Button'> Enviar</button>
-                    </form>
-                </div>
-                <div class="Loading hide">
-                    <div class="lds-ripple">
-                        <div></div>
-                        <div></div>
+<section class="Albuns">
+    <div class="container">
+        <div class="Card">
+            <div class="busca">
+                <form class="Form _search" method="POST" id="album">
+                    <h2>Procure seu album do spotify</h2>
+                    <div class="input">
+                        <label for="album" tabindex="-1">Digite o ID do album</label>
+                        <input type="text" id="album" name="album"/> 
+                        <small></small>
+                        <button class="Button _is-search" type="submit"><i class="icon-search"></i></button>
                     </div>
+                </form>
+            </div>
+            <div class="Loading hide">
+                <div class="lds-ripple">
+                    <div></div>
+                    <div></div>
                 </div>
-                <div class="result hide" id="result-request">
-                    <div class="Row">
-                        <div class="col">
-                            <div class="content">
-                                <div class="Line"></div>
-                                <div class="Row">
-                                    <div class="col _col-4">
-                                        <img class="img" src="{{data.images[0].url}}" id="album-img" download="" alt="Capa Album" />
-                                    </div>
-                                    <div class="col _col-8">
-                                        <div class="conteudo">
-                                            <div class="sobre">
-                                                <h3 id="album-name"></h3>
-                                                <ul class="List">
-                                                    <li>
-                                                        Album by -
-                                                        <span id="artist">{{data.artists[0].name}}</span>
-                                                    </li>
-                                                    <li>
-                                                        Categorie -
-                                                        <span id="album-type">{{data.album_type}}</span>
-                                                    </li>
-                                                    <li>
-                                                        Release -
-                                                        <span id="album-release">{{data.release_date}}</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
+            </div>
+            <div class="result hide" id="result-request">
+                <div class="Row">
+                    <div class="col">
+                        <div class="content">
+                            <div class="Line"></div>
+                            <div class="Row">
+                                <div class="col _col-4">
+                                    <img class="img" src="{{data.images[0].url}}" id="album-img" download="" alt="Capa Album" />
+                                </div>
+                                <div class="col _col-8">
+                                    <div class="conteudo">
+                                        <div class="sobre">
+                                            <h3 id="album-name"></h3>
+                                            <ul class="List">
+                                                <li>
+                                                    Album by -
+                                                    <span id="artist">{{data.artists[0].name}}</span>
+                                                </li>
+                                                <li>
+                                                    Categorie -
+                                                    <span id="album-type">{{data.album_type}}</span>
+                                                </li>
+                                                <li>
+                                                    Release -
+                                                    <span id="album-release">{{data.release_date}}</span>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="Line"></div>
                             </div>
+                            <div class="Line"></div>
                         </div>
                     </div>
-                    <div class="Musicas">
-                        <h2>Musicas</h2>
-                        <div class="arroww">
-                            <i id="songs">></i>
-                        </div>
-                        <ul id="musicas" class="hide">
-                            <li>
-                                <span class="pos">#</span><span id="title">TITLE</span><span class="time"
-                                    id="time">TIME</span>
-                            </li>
-                            {% for key,i in item %}
-                                {% set y = key + 1 %}
-                                    <li>
-                                        <span class="pos">{{y}}</span>{{i.name}}<span class="time" id="time">{{i.duration_ms}}</span>
-                                    </li>
-                            {% endfor %}
-                        </ul>
+                </div>
+                <div class="Musicas">
+                    <h2>Musicas</h2>
+                    <div class="arroww">
+                        <i id="songs">></i>
                     </div>
+                    <ul id="musicas" class="hide">
+                        <li>
+                            <span class="pos">#</span><span id="title">TITLE</span><span class="time"
+                                id="time">TIME</span>
+                        </li>
+                        {% for key,i in item %}
+                            {% set y = key + 1 %}
+                                <li>
+                                    <span class="pos">{{y}}</span>{{i.name}}<span class="time" id="time">{{i.duration_ms}}</span>
+                                </li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 {% endblock %}

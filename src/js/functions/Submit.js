@@ -1,3 +1,5 @@
+import Label from "../animations/label.js";
+
 class Submit {
   constructor(form, settings) {
     try {
@@ -5,6 +7,7 @@ class Submit {
       this.settings = settings;
       this.errorHandler(settings);
       this.init();
+      this.labels = new Label(this.form).init();
     } catch (e) {
       console.log(e);
     }
@@ -122,14 +125,17 @@ class Submit {
   }
 
   getData() {
-    let inputs = this.getAllInputs();
-    let data = {};
+    if (this.validForm()) {
+      let inputs = this.getAllInputs();
+      let data = {};
 
-    inputs.forEach((input) => {
-      data[input.name] = input.value;
-    });
+      inputs.forEach((input) => {
+        data[input.name] = input.value;
+      });
 
-    return data;
+      return data;
+    }
+    throw Error("Form is not valid");
   }
 
   //Retorna all Validator Funcitons from a Input
@@ -140,7 +146,7 @@ class Submit {
   //Watch inputs values after FOCUS OUT
   watchInput(e, f) {
     for (let i = 0; i < f.length; i++) {
-      console.log(f[i]);
+      // console.log(f[i]);
       if (this.__proto__[`${f[i][0]}`](e.target, f[i][1]) == false) {
         break;
       }
@@ -151,7 +157,7 @@ class Submit {
   //Verify if all inputs are valid for Submit
   verifyAllInputs(e, f) {
     for (let i = 0; i < f.length; i++) {
-      console.log(f[i]);
+      // console.log(f[i]);
       if (this.__proto__[`${f[i][0]}`](e, f[i][1]) == false) {
         return false;
       }
@@ -181,13 +187,18 @@ class Submit {
   showError(e, parameters) {
     let small = document.createElement("small");
     let input = e;
+    let label = e.previousElementSibling;
 
     try {
       if (parameters.message != undefined) {
-        if (input.classList.contains("success"))
+        if (input.classList.contains("success")) {
           input.classList.toggle("success");
+          label.classList.toggle("success");
+        }
 
         e.classList.add("error");
+        label.classList.add("error");
+
         small.innerText = parameters.message;
 
         if (e.nextElementSibling === null) {
@@ -205,14 +216,19 @@ class Submit {
 
   showSuccess(e) {
     let input = e.target;
+    let label = e.target.previousElementSibling;
 
-    if (input.classList.contains("error")) input.classList.toggle("error");
+    if (input.classList.contains("error")) {
+      input.classList.toggle("error");
+      label.classList.toggle("error");
+    }
 
     if (input.nextElementSibling != null) {
-      input.parentNode.removeChild(input.nextElementSibling);
+      input.nextElementSibling.innerText = "";
     }
 
     input.classList.add("success");
+    label.classList.add("success");
   }
 
   /* 

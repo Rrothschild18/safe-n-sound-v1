@@ -8,9 +8,11 @@ export default class Label {
 
     inputs.forEach((el) => {
       el.addEventListener("focus", (e) => {
+        el.placeholder = "";
         let label = e.target.previousElementSibling;
         label.classList.add("move");
       });
+
       el.addEventListener("focusout", (e) => {
         let label = e.target.previousElementSibling;
         if (e.target.value == "" && label.classList.contains("move"))

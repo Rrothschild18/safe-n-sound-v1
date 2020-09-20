@@ -1,6 +1,7 @@
-import Label from "./animations/label.js";
 import Swap from "./animations/swap.js";
 import Submit from "./functions/Submit.js";
+import submit_Album from "./functions/searchAlbum.js";
+import submit_Artist from "./functions/searchArtist.js";
 
 try {
   const SwapCards = new Swap(".Suported .Card");
@@ -10,64 +11,22 @@ try {
 }
 
 try {
-  const myForm = document.querySelector("#test");
-  const label = new Label(myForm).init();
+  const myForm = document.querySelector("#album");
   const submitAlbum = new Submit(myForm, {
     fields: {
-      userName: {
+      album: {
         notEmpty: {
-          message: "The username is required",
+          message: "The album ID is required",
         },
         stringLength: {
-          min: 6,
+          min: 15,
           max: 30,
           message:
-            "The username must be more than 6 and less than 30 characters long",
+            "The username must be more than 15 and less than 30 characters long",
         },
         regexp: {
-          regexp: /^[a-zA-Z0-9_]+$/,
-          message:
-            "The username can only consist of alphabetical, number and underscore",
-        },
-      },
-      userEmail: {
-        notEmpty: {
-          message: "The E-mail is required",
-        },
-        regexp: {
-          regexp: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-          message: "Please enter a valid E-mail",
-        },
-      },
-      userAge: {
-        notEmpty: {
-          message: "The Age is required",
-        },
-        inputBetween: {
-          message: "Age must be between 10 - 20",
-          min: 10,
-          max: 20,
-        },
-      },
-      userSpec: {
-        notEmpty: {
-          message: "The Specility is required",
-        },
-      },
-      albumID: {
-        notEmpty: {
-          message: "The AlbumID is required",
-        },
-        stringLength: {
-          min: 6,
-          max: 30,
-          message:
-            "The username must be more than 6 and less than 30 characters long",
-        },
-        regexp: {
-          regexp: /^[a-zA-Z0-9_]+$/,
-          message:
-            "The username can only consist of alphabetical, number and underscore",
+          regexp: /^[a-zA-Z0-9]+$/,
+          message: "The album ID can only consist of alphabetical and number",
         },
       },
     },
@@ -77,13 +36,43 @@ try {
 
   myForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (submitAlbum.validForm()) {
-      albumValidData = submitAlbum.getData();
-      console.log(albumValidData);
-    }
-    if (!submitAlbum.validForm()) {
-      e.preventDefault();
-    }
+    albumValidData = submitAlbum.getData();
+
+    submit_Album(albumValidData.album, "");
+  });
+} catch (e) {
+  console.log(e);
+}
+
+try {
+  const myFormArtist = document.querySelector("#artist");
+  const submitArtist = new Submit(myFormArtist, {
+    fields: {
+      artist: {
+        notEmpty: {
+          message: "The album ID is required",
+        },
+        stringLength: {
+          min: 15,
+          max: 30,
+          message:
+            "The username must be more than 15 and less than 30 characters long",
+        },
+        regexp: {
+          regexp: /^[a-zA-Z0-9]+$/,
+          message: "The album ID can only consist of alphabetical and number",
+        },
+      },
+    },
+  });
+
+  let artistValidData = {};
+
+  myFormArtist.addEventListener("submit", (e) => {
+    e.preventDefault();
+    artistValidData = submitArtist.getData();
+
+    submit_Artist(artistValidData.artist, "");
   });
 } catch (e) {
   console.log(e);

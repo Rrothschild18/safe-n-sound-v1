@@ -1,3 +1,184 @@
 .Artist {
-    padding: 100px 0;
+  padding: 100px 0;
+
+  .result {
+    .overall {
+      .photo {
+        img {
+          border-radius: 50%;
+        }
+      }
+      .profile {
+        display: flex;
+
+        .description {
+          margin: 50px 0;
+          h2,
+          h4 {
+            margin-bottom: 10px;
+          }
+
+          h2 {
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+
+          h4 {
+            color: #7e7e7e;
+          }
+          ul {
+            position: absolute;
+            right: 0;
+            top: 41px;
+            min-height: 100px;
+            text-align: right;
+            max-width: 270px;
+
+            li {
+              display: inline-block;
+              margin: 0 7px 5px 0;
+              padding: 3px 8px;
+              background-color: $dark-blue-a;
+              border-radius: 5px;
+              text-transform: capitalize;
+              color: #fff;
+              font-size: 14px;
+              font-weight: bold;
+
+              &:hover {
+              }
+            }
+          }
+
+          p {
+            margin-top: 40px;
+          }
+        }
+      }
+    }
+
+    .toptracks {
+      .Row {
+        transition: all 1s;
+        .col._col-8 {
+          max-height: 279px;
+          overflow-y: hidden;
+
+          &:hover {
+            transition: max-height 1s;
+            max-height: 1000px;
+          }
+        }
+        .col._col-4 {
+          max-height: 320px;
+          overflow-y: hidden;
+          transition: all 1s;
+
+          &:hover {
+            transition: max-height 1s;
+            max-height: 1000px;
+          }
+        }
+      }
+
+      .top {
+        span.title {
+          text-align: left;
+          float: left;
+          margin-bottom: 20px;
+        }
+
+        .col._col-12 {
+          display: flex;
+          align-content: center;
+          align-items: center;
+
+          &.border {
+          }
+
+          .track {
+            display: flex;
+            align-items: center;
+            width: 95%;
+            padding: 0px;
+            border-top: 1px solid #e5e5e5;
+
+            img {
+              height: 50px;
+              width: 50px;
+            }
+          }
+          .label {
+            margin-left: 30px;
+            h5 {
+              margin-bottom: 0px;
+              color: #2e2e2e;
+              font-weight: bold;
+            }
+            span {
+              font-size: 13px;
+            }
+          }
+        }
+      }
+
+      .related {
+        display: flex;
+        align-items: center;
+        padding: 5px 0;
+
+        img {
+          display: inline-block;
+          border-radius: 50%;
+          max-height: 50px;
+        }
+        .label {
+          margin-left: 15px;
+          display: inline-block;
+
+          h5 {
+            margin-bottom: 0px;
+            color: #2e2e2e;
+            font-weight: bold;
+          }
+          span {
+            font-size: 13px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    .albuns {
+      padding-top: 100px;
+
+      .Row {
+        justify-content: space-between;
+      }
+
+      .album {
+        max-width: 250px;
+
+        img {
+        }
+        .content {
+          padding: 20px 0;
+          border-top: 0;
+          padding: 20px 15px;
+          h6 {
+            text-align: left;
+            margin-bottom: 10px;
+          }
+          .description {
+            span {
+              display: block;
+              text-transform: uppercase;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
