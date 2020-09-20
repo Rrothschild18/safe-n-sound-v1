@@ -1,83 +1,79 @@
 .Card {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    padding: 40px 80px;
-    box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.15);
-    color: #0d1226;
-    background-color: #fff;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  padding: 40px 80px;
+  box-shadow: 1px 1px 20px 5px rgba(0, 0, 0, 0.15);
+  color: #0d1226;
+  background-color: #fff;
 
-    .imgg {
-        &._hue{
-            filter: hue-rotate(165deg);
-        }
+  .imgg {
+    &._hue {
+      filter: hue-rotate(165deg);
     }
-    .arroww {
-        text-align: center;
-        float: right;
-        i {
-            display: inline-block;
-            transform: rotate(270deg);
-            font-size: 40px;
-            height: 60px;
-            width: 60px;
-            margin: 0 auto;
-            border-radius: 50%;
-            transition: transform 1s;
-            user-select: none;
-            cursor: pointer;
-            
-            &:hover{
-                background-color: $dark-blue-a;
-                backdrop-filter: blur(4px);
-                color: #ffffff;
-            }
-        }
+  }
+  .arroww {
+    text-align: center;
+    float: right;
+    i {
+      display: inline-block;
+      transform: rotate(270deg);
+      font-size: 40px;
+      height: 60px;
+      width: 60px;
+      margin: 0 auto;
+      border-radius: 50%;
+      transition: transform 1s;
+      user-select: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $dark-blue-a;
+        backdrop-filter: blur(4px);
+        color: #ffffff;
+      }
+    }
+  }
+
+  .result {
+    overflow: hidden;
+    max-height: 3000px;
+    transition: max-height 1s ease-in-out;
+  }
+
+  .hide {
+    pointer-events: none;
+    max-height: 0px;
+    transition: max-height 1s ease-in-out;
+  }
+  ul {
+    &.hide {
+      max-height: 70px;
+    }
+  }
+
+  .content {
+    .Row {
+      padding: 40px 0px;
+      align-content: center;
+      align-items: center;
+    }
+    .img {
+      display: inline-block;
+    }
+    .sobre {
+      display: block;
+
+      h3 {
+        text-align: left;
+      }
     }
 
-    .result {
-        overflow:hidden;
-        max-height: 3000px;
-        transition: max-height 1s ease-in-out;
-
+    .Line {
+      &:before {
+        width: 100%;
+        margin-bottom: 0;
+      }
     }
-
-    .hide {
-        pointer-events: none;
-        max-height: 0px;
-        transition: max-height 1s ease-in-out;
-    }
-    ul{
-        &.hide{
-            max-height: 70px;
-        }
-    }
-
-
-    .content {
-        margin-bottom: 70px;
-
-        .Row {
-            padding: 40px 0px;
-            align-content: center;
-            align-items: center;
-        }
-        .img {
-            display: inline-block;
-        }
-        .sobre {
-            display: block;
-            
-            h3 {
-                    text-align: left;
-            }
-        }
-
-        .Line {
-            &:before {
-                width: 100%;
-                margin-bottom: 0;
-            }
-        }
-    }
+  }
 }

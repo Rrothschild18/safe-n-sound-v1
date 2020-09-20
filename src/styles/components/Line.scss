@@ -1,11 +1,23 @@
 .Line {
-    &::before{
-        position: relative;
-        content: '';
-        display: block;
-        background-color: #0d1226;
-        height: 1px;
-        width: 60%;
-        margin: 0 auto 40px;
+  &::before {
+    position: relative;
+    content: "";
+    display: block;
+    background-color: #0d1226;
+    height: 1px;
+    width: 60%;
+    margin: 0 auto 40px;
+  }
+
+  &._artists {
+    &::before {
+      content: "";
+      position: relative;
+      display: block;
+      background-color: #e5e5e5;
+      height: 1px;
+      width: 100%;
+      margin: 0 auto 40px;
     }
+  }
 }
