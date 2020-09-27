@@ -1,3 +1,4 @@
+import showHide from "./animations/toggle.js";
 import Swap from "./animations/swap.js";
 import Submit from "./functions/Submit.js";
 import submit_Album from "./functions/searchAlbum.js";
@@ -45,6 +46,9 @@ try {
 }
 
 try {
+  const btn = document.querySelector("#showR");
+  btn.addEventListener("click", showHide);
+
   const myFormArtist = document.querySelector("#artist");
   const submitArtist = new Submit(myFormArtist, {
     fields: {
@@ -72,8 +76,18 @@ try {
     e.preventDefault();
     artistValidData = submitArtist.getData();
 
-    submit_Artist(artistValidData.artist, "");
+    submit_Artist(artistValidData.artist, "")
+      .then(() => {
+        load_smoothly();
+      })
+      .catch((e) => {
+        load_smoothly();
+      });
   });
 } catch (e) {
   console.log(e);
+}
+function load_smoothly() {
+  const e = document.querySelector(".Loading");
+  e.classList.toggle("hide");
 }

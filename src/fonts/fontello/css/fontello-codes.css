@@ -12,7 +12,14 @@
 .icon-youtube:before { content: '\e80c'; } /* '' */
 .icon-twitter:before { content: '\e80d'; } /* '' */
 .icon-inovacao:before { content: '\e816'; } /* '' */
+.icon-pause:before { content: '\f00e'; } /* '' */
+.icon-play:before { content: '\f00f'; } /* '' */
+.icon-to-end:before { content: '\f010'; } /* '' */
+.icon-to-start:before { content: '\f011'; } /* '' */
+.icon-fast-forward:before { content: '\f012'; } /* '' */
+.icon-fast-backward:before { content: '\f013'; } /* '' */
 .icon-shuffle:before { content: '\f03b'; } /* '' */
+.icon-stop:before { content: '\f080'; } /* '' */
 .icon-linkedin:before { content: '\f0e1'; } /* '' */
 .icon-right:before { content: '\f178'; } /* '' */
 .icon-apple:before { content: '\f179'; } /* '' */

@@ -1,70 +1,50 @@
-const Artists = require('../../models/api/Artist');
+const Artists = require("../../models/api/Artist");
 const artist = new Artists();
 
-exports.showData = (req, res) =>{
-    res.json(artist.showData());
-}
+exports.showData = (req, res) => {
+  res.json(artist.showData());
+};
 
-exports.showValue = (req,res)=>{
-    res.json(artist.showValue(req.params));
-}
+exports.showValue = (req, res) => {
+  res.json(artist.showValue(req.params));
+};
 
-exports.getArtist = async (req,res)=>{
-    const ID = req.params.id;
+exports.getArtist = async (req, res) => {
+  const ID = req.params.id;
+  const TOKEN = await artist.tokenRequest();
 
-    if(!artist.validUserInput(ID)){
-        res.json({erro:'Bad Request'});
-    }
+  artist
+    .getArtist(TOKEN, ID)
+    .then((response) => res.json(response.data))
+    .catch((e) => res.status(400).json(e));
+};
 
-    try{
-        const TOKEN = await artist.tokenRequest();
-        const data = await artist.getArtist(TOKEN, ID);
-        res.json(data);
-    }catch(e){
-        res.json(e);
-    }
-}
+exports.getArtistTop = async (req, res) => {
+  const ID = req.params.id;
+  const TOKEN = await artist.tokenRequest();
 
-exports.getArtistTop = async(req, res)=>{
-    const ID = req.params.id;
-    if(!artist.validUserInput(ID)){
-        res.json({erro:'Bad Request'});
-    }
+  artist
+    .getArtistTop(TOKEN, ID)
+    .then((response) => res.json(response.data))
+    .catch((e) => res.status(400).json(e));
+};
 
-    try{
-        const TOKEN = await artist.tokenRequest();
-        const data = await artist.getArtistTop(TOKEN, ID);
-        res.json(data);
-    }catch(err){
-        res.json(err);
-    }
+exports.getArtistAlbum = async (req, res) => {
+  const ID = req.params.id;
+  const TOKEN = await artist.tokenRequest();
 
-}
+  artist
+    .getArtistAlbum(TOKEN, ID)
+    .then((response) => res.json(response.data))
+    .catch((e) => res.status(400).json(e));
+};
 
-exports.getArtistAlbum = async(req, res)=>{
-    const ID = req.params.id;
-    if(!artist.validUserInput(ID)){
-        res.json({erro:'Bad Request'});
-    }
-    try{
-        const TOKEN = await artist.tokenRequest();
-        const data  = await artist.getArtistAlbum(TOKEN, ID);
-        res.json(data);
-    }catch(e){
-        res.json(e);
-    }
-}
+exports.getArtistRelated = async (req, res) => {
+  const ID = req.params.id;
+  const TOKEN = await artist.tokenRequest();
 
-exports.getArtistRelated = async(req,res)=>{
-    const ID = req.params.id;
-    if(!artist.validUserInput(ID)){
-        res.json({erro: 'Bad Request'});
-    }
-    try{
-        const TOKEN = await artist.tokenRequest();
-        const data = await artist.getArtistRelated(TOKEN, ID);
-        res.json(data);
-    }catch(err){
-        res.json(err);
-    }
-}
+  artist
+    .getArtistRelated(TOKEN, ID)
+    .then((response) => res.json(response.data))
+    .catch((e) => res.status(400).json(e));
+};

@@ -193,6 +193,48 @@
       "src": "fontawesome"
     },
     {
+      "uid": "3711151b8b34536498e2a7f4d5188ed2",
+      "css": "play",
+      "code": 61455,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "164f35b55c3346b03fa89a711a4f3980",
+      "css": "pause",
+      "code": 61454,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "0a38a63796b90318b5fca493c3d4a17a",
+      "css": "stop",
+      "code": 61568,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "dcda6b27f1f63fbd7b8bf8d45cc4d340",
+      "css": "to-end",
+      "code": 61456,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "75b228ebc26946ca00360ca10f052e3c",
+      "css": "to-start",
+      "code": 61457,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "59a3c018a7c1888658e4d93df8f7558f",
+      "css": "fast-forward",
+      "code": 61458,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "ee0b543733d75a60ff5647070dc1d4f8",
+      "css": "fast-backward",
+      "code": 61459,
+      "src": "mfglabs"
+    },
+    {
       "uid": "9707a3984365adfef753af0311d728bf",
       "css": "globe",
       "code": 59396,

@@ -21,20 +21,31 @@
             </div>
         </div>
         <div class="result">
-        <div class="overall">
-            <div class="Row">
-                <div class="col _col-4">
-                    <div class="photo">
-                        <img src="/assets/images/artistPhoto.jpeg" alt="Artist Photo">
-                    </div>
+            <div class="overall" data-target="overallResponse">
+                <div class="photo">
+                    <img src="/assets/images/artistPhoto.jpeg" alt="Artist Photo" id="artistPhoto">
                 </div>
-                <div class="col _col-8">
+                <div class="content">
+                    <h6 id="artistType">Artist</h6>
                     <div class="profile">
                         <div class="description">
-                            <h6 id="artistType" class="_mb25">Artist</h6>
                             <h2 id="artistName">Deadmau5</h2>
                             <h4 id="artistFollowers">580.000 Followers</h4>
                             <h4 id="artistPop">Popularity</h4>
+                            <div id="progress" class='progress'>
+                                <div class=""></div>
+                                <div class=""></div>
+                                <div class=""></div>
+                                <div class=""></div>
+                                <div class=""></div>
+                                <div class=""></div>
+                                <div class=""></div>
+                                <div class=""></div>
+                                <div class=""></div>
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <div class="genres">
                             <ul id="artistGenres">
                                 <li>big room</li>
                                 <li>canadian eletronic</li>
@@ -42,318 +53,61 @@
                                 <li>electro house</li>
                                 <li>progressive house</li>
                             </ul>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, ipsa sunt quasi temporibus fugit ipsam. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam, ducimus!</p>
                         </div>
                     </div>
-                    <div class="Line _artists"></div>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, ipsa sunt quasi temporibus fugit ipsam. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam, ducimus!
+                    </p>
                 </div>
             </div>
-        </div>
-        <div class="toptracks">
-            <div class="Row">
-                <div class="col _col-8">
-                    <span class="title">Top Tracks</span>
-                    <div class="top">
-                    <div class="Row">
-                        <div class="col _col-12">
-                            <div class="track">
-                                <img src="/assets/images/song.jpeg" alt="Song Photo">
-                                <div class="label">
-                                    <h5>Alone With You</h5>
-                                    <span>Random Album Title</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col _col-12">
-                            <div class="track">
-                                <img src="/assets/images/song.jpeg" alt="Song Photo">
-                                <div class="label">
-                                    <h5>Alone With You</h5>
-                                    <span>Random Album Title</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col _col-12">
-                            <div class="track">
-                                <img src="/assets/images/song.jpeg" alt="Song Photo">
-                                <div class="label">
-                                    <h5>Alone With You</h5>
-                                    <span>Random Album Title</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col _col-12">
-                            <div class="track">
-                                <img src="/assets/images/song.jpeg" alt="Song Photo">
-                                <div class="label">
-                                    <h5>Alone With You</h5>
-                                    <span>Random Album Title</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col _col-12">
-                            <div class="track">
-                                <img src="/assets/images/song.jpeg" alt="Song Photo">
-                                <div class="label">
-                                    <h5>Alone With You</h5>
-                                    <span>Random Album Title</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col _col-12">
-                            <div class="track">
-                                <img src="/assets/images/song.jpeg" alt="Song Photo">
-                                <div class="label">
-                                    <h5>Alone With You</h5>
-                                    <span>Random Album Title</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col _col-12">
-                            <div class="track">
-                                <img src="/assets/images/song.jpeg" alt="Song Photo">
-                                <div class="label">
-                                    <h5>Alone With You</h5>
-                                    <span>Random Album Title</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col _col-12">
-                            <div class="track">
-                                <img src="/assets/images/song.jpeg" alt="Song Photo">
-                                <div class="label">
-                                    <h5>Alone With You</h5>
-                                    <span>Random Album Title</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col _col-12">
-                            <div class="track">
-                                <img src="/assets/images/song.jpeg" alt="Song Photo">
-                                <div class="label">
-                                    <h5>Alone With You</h5>
-                                    <span>Random Album Title</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col _col-12">
-                            <div class="track">
-                                <img src="/assets/images/song.jpeg" alt="Song Photo">
-                                <div class="label">
-                                    <h5>Alone With You</h5>
-                                    <span>Random Album Title</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col _col-4">
-                <span class="title">Fans Also Like</span>
+            <div class="Line _artists"></div>
+            <div class="toptracks" data-target="toptracksResponse">
                 <div class="Row">
-                    <div class="col _col-12">
-                        <div class="related">
-                            <img src="/assets/images/related.jpeg" alt="Related Artist ">
-                            <div class="label">
-                                <span>Kaskade</span>
+                    <div class="col _col-8" data-target="showTracks">
+                        <span class="title">Top Tracks</span>
+                        <div class="top">
+                            <div class="Row">
+                                <div id="track" class="col _col-12">
+                                    <div class="track">
+                                        <div class="content">
+                                            <img src="/assets/images/song.jpeg" alt="Song Photo" id="trackPhoto">
+                                            <div class="label">
+                                                <h5 id="trackName">Alone With You</h5>
+                                                <span id="trackDescription">Random Album Title</span>
+                                            </div>
+                                        </div>
+                                        <span class="duration" id="duration">3:26</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col _col-12">
-                        <div class="related">
-                            <img src="/assets/images/related.jpeg" alt="Related Artist ">
-                            <div class="label">
-                                <span>Kaskade</span>
+                    <div class="col _col-4" data-target="showRelated">
+                        <span class="title">Fans Also Like</span>
+                        <div class="Row">
+                            <div id="related" class="col _col-12">
+                                <div class="related">
+                                    <img id="relatedPhoto" src="/assets/images/related.jpeg" alt="Related Artist ">
+                                    <div class="label">
+                                        <span id="relatedName">Kaskade</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col _col-12">
-                        <div class="related">
-                            <img src="/assets/images/related.jpeg" alt="Related Artist ">
-                            <div class="label">
-                                <span>Kaskade</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col _col-12">
-                        <div class="related">
-                            <img src="/assets/images/related.jpeg" alt="Related Artist ">
-                            <div class="label">
-                                <span>Kaskade</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col _col-12">
-                        <div class="related">
-                            <img src="/assets/images/related.jpeg" alt="Related Artist ">
-                            <div class="label">
-                                <span>Kaskade</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col _col-12">
-                        <div class="related">
-                            <img src="/assets/images/related.jpeg" alt="Related Artist ">
-                            <div class="label">
-                                <span>Kaskade</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col _col-12">
-                        <div class="related">
-                            <img src="/assets/images/related.jpeg" alt="Related Artist ">
-                            <div class="label">
-                                <span>Kaskade</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col _col-12">
-                        <div class="related">
-                            <img src="/assets/images/related.jpeg" alt="Related Artist ">
-                            <div class="label">
-                                <span>Kaskade</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col _col-12">
-                        <div class="related">
-                            <img src="/assets/images/related.jpeg" alt="Related Artist ">
-                            <div class="label">
-                                <span>Kaskade</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col _col-12">
-                        <div class="related">
-                            <img src="/assets/images/related.jpeg" alt="Related Artist ">
-                            <div class="label">
-                                <span>Kaskade</span>
-                            </div>
-                        </div>
-                    </div>
+                    <button id="showR" class="Button _is-primary">Show more</button>
                 </div>
             </div>
-            </div>
-        </div>
-        <div class="albuns">
+            <div class="albuns" data-target="albunsResponse">
             <div class="Row">
-                <div class="album">
-                    <img src="/assets/images/album.jpg" alt="Album Name">
-                    <div class="content">
-                        <h6>4x4=12</h6>
-                        <div class="description">
-                            <span class="title">10 Songs</span>
-                            <span class="title">2019</span>
-                        </div>
+                <div class="album" id="album">
+                    <div class="holder">
+                        <img id="albumPhoto" src="/assets/images/album.jpg" alt="Album Name">
                     </div>
-                </div>
-                <div class="album">
-                    <img src="/assets/images/album.jpg" alt="Album Name">
                     <div class="content">
-                        <h6>4x4=12</h6>
+                        <h6 id="albumName">4x4=12</h6>
                         <div class="description">
-                            <span class="title">10 Songs</span>
-                            <span class="title">2019</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="album">
-                    <img src="/assets/images/album.jpg" alt="Album Name">
-                    <div class="content">
-                        <h6>4x4=12</h6>
-                        <div class="description">
-                            <span class="title">10 Songs</span>
-                            <span class="title">2019</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="album">
-                    <img src="/assets/images/album.jpg" alt="Album Name">
-                    <div class="content">
-                        <h6>4x4=12</h6>
-                        <div class="description">
-                            <span class="title">10 Songs</span>
-                            <span class="title">2019</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="album">
-                    <img src="/assets/images/album.jpg" alt="Album Name">
-                    <div class="content">
-                        <h6>4x4=12</h6>
-                        <div class="description">
-                            <span class="title">10 Songs</span>
-                            <span class="title">2019</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="album">
-                    <img src="/assets/images/album.jpg" alt="Album Name">
-                    <div class="content">
-                        <h6>4x4=12</h6>
-                        <div class="description">
-                            <span class="title">10 Songs</span>
-                            <span class="title">2019</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="album">
-                    <img src="/assets/images/album.jpg" alt="Album Name">
-                    <div class="content">
-                        <h6>4x4=12</h6>
-                        <div class="description">
-                            <span class="title">10 Songs</span>
-                            <span class="title">2019</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="album">
-                    <img src="/assets/images/album.jpg" alt="Album Name">
-                    <div class="content">
-                        <h6>4x4=12</h6>
-                        <div class="description">
-                            <span class="title">10 Songs</span>
-                            <span class="title">2019</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="album">
-                    <img src="/assets/images/album.jpg" alt="Album Name">
-                    <div class="content">
-                        <h6>4x4=12</h6>
-                        <div class="description">
-                            <span class="title">10 Songs</span>
-                            <span class="title">2019</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="album">
-                    <img src="/assets/images/album.jpg" alt="Album Name">
-                    <div class="content">
-                        <h6>4x4=12</h6>
-                        <div class="description">
-                            <span class="title">10 Songs</span>
-                            <span class="title">2019</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="album">
-                    <img src="/assets/images/album.jpg" alt="Album Name">
-                    <div class="content">
-                        <h6>4x4=12</h6>
-                        <div class="description">
-                            <span class="title">10 Songs</span>
-                            <span class="title">2019</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="album">
-                    <img src="/assets/images/album.jpg" alt="Album Name">
-                    <div class="content">
-                        <h6>4x4=12</h6>
-                        <div class="description">
-                            <span class="title">10 Songs</span>
-                            <span class="title">2019</span>
+                            <span id="albumQnty" class="title">10 Songs</span>
+                            <span id="albumYear" class="title">2019</span>
                         </div>
                     </div>
                 </div>
