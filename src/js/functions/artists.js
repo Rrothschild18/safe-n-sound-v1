@@ -1,3 +1,5 @@
+import submit_Artist from "./searchArtist.js";
+
 /* GET ARTISTS OVERALL**/
 export const getArtist = function (ARTIST_ID) {
   return fetch(`http://localhost:3000/api/artist/${ARTIST_ID}`)
@@ -41,7 +43,7 @@ export const getArtist = function (ARTIST_ID) {
 
       updateList(genres, data.genres);
 
-      // console.log(data);
+      return data;
     })
     .catch((e) => e);
 };
@@ -59,6 +61,7 @@ export const getArtistRelated = function (ARTIST_ID) {
     })
     .then((data) => {
       updateRelatedList(data.artists);
+      return data;
     })
     .catch((e) => e);
 };
@@ -72,6 +75,7 @@ export const getArtistAlbums = function (ARTIST_ID) {
     })
     .then((data) => {
       updateAlbumdList(data.items);
+      return data;
     })
     .catch((e) => {
       return e;
@@ -82,11 +86,15 @@ export const getArtistAlbums = function (ARTIST_ID) {
 export const getArtistToptracks = function (ARTIST_ID) {
   return fetch(`http://localhost:3000/api/artist/${ARTIST_ID}/toptracks`)
     .then((response) => {
-      if (!response.ok) return Promise.reject(response);
+      if (!response.ok) {
+        console.log("hello");
+        return Promise.reject(response);
+      }
       return response.json();
     })
     .then((data) => {
       updateTrackList(data.tracks);
+      return data;
     })
     .catch((e) => e);
 };
@@ -122,11 +130,11 @@ const updateTrackList = function (data) {
   });
 
   data.forEach((track) => {
-    let newTrack = cloneTrack.cloneNode(true);
-    let photo = newTrack.querySelector("#trackPhoto");
-    let name = newTrack.querySelector("#trackName");
-    let description = newTrack.querySelector("#trackDescription");
-    let time = newTrack.querySelector("#duration");
+    let newTrack = cloneTrack.cloneNode(true),
+      photo = newTrack.querySelector("#trackPhoto"),
+      name = newTrack.querySelector("#trackName"),
+      description = newTrack.querySelector("#trackDescription"),
+      time = newTrack.querySelector("#duration");
 
     photo.src = track.album.images[1].url;
     name.textContent = track.name;
@@ -156,6 +164,13 @@ const updateRelatedList = function (data) {
 
     photo.src = relatedArtist.images[1].url;
     name.textContent = relatedArtist.name;
+    newRelated.setAttribute("data-fetchid", relatedArtist.id);
+
+    newRelated.addEventListener("click", (e) => {
+      let id = e.target.closest("#related").getAttributeNode("data-fetchid")
+        .value;
+      submit_Artist(id);
+    });
 
     parent.appendChild(newRelated);
   });

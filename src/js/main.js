@@ -77,17 +77,56 @@ try {
     artistValidData = submitArtist.getData();
 
     submit_Artist(artistValidData.artist, "")
-      .then(() => {
+      .then((response) => {
+        response = Array.from(response).every(
+          (res) => res.value instanceof Response
+        );
+        console.log(response);
+
+        if (response) return Promise.reject(response);
+
+        showSucces();
         load_smoothly();
       })
       .catch((e) => {
+        let msg = `Was not possible to find yout album by ID: `;
+        showError(msg);
         load_smoothly();
+        console.log(e);
       });
   });
 } catch (e) {
   console.log(e);
 }
+
 function load_smoothly() {
   const e = document.querySelector(".Loading");
   e.classList.toggle("hide");
 }
+
+function showResult() {
+  let result = document.querySelector(".result");
+
+  if (result.classList.contains("hide")) result.classList.toggle("hide");
+}
+
+const showError = (msg) => {
+  const DIV = document.querySelector(".input");
+  let message = document.querySelector("small");
+
+  DIV.style.borderColor = "red";
+  message.style.color = "red";
+  message.innerText = "" + msg + "";
+};
+
+const showSucces = () => {
+  const DIV = document.querySelector(".input");
+  let message = document.querySelector("small");
+  let msg = "Success xD";
+
+  showResult();
+
+  DIV.style.borderColor = "green";
+  message.style.color = "green";
+  message.innerText = msg;
+};
