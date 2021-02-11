@@ -34,7 +34,8 @@ npm start -- localhost:3000
 
 
 # Procure o arista pelo ID // https://open.spotify.com/artist/2CIMQHirSU0MQqyYHq0eOx
- 2CIMQHirSU0MQqyYHq0eO
+# 2CIMQHirSU0MQqyYHq0eO
+ 
  Nada pratico kkk,mas so vi dps na documentacao q dava para fazer uma busca relacionada, e nao necessariamente pelo ID.
  
  # Gifs
