@@ -1,8 +1,10 @@
 # safe-n-sound-v1
 #
 # DESCRICAO DO PROJ :
-Projeto feito com o intuito de aprender um pouco a como criar uma API e consumir dados do Spotifty atraves do express.js. A ideia original era implementar um sistema com HTML CSS JS puro no front e MongoDB e Express no back para realizar a transferencia de musicas do Spotify para o Youtube ou vice-versa.
-  Infelizmente ficou extremamente dificil implementar um Front End capaz de gerar animacoes, fazer requisoes HTTP, e armazenar estados sem um framework para o CSS e pro JS. Acabou que descontinuei o projeto.
+Projeto feito com o intuito de aprender um pouco a como criar uma API e consumir dados do Spotifty atraves do express.js. 
+A ideia original era implementar um sistema com HTML CSS JS puro no front e MongoDB e Express no back para realizar a transferencia de musicas do Spotify para o Youtube ou vice-versa.
+
+Infelizmente ficou extremamente dificil implementar um Front End capaz de gerar animacoes, fazer requisoes HTTP, e armazenar estados sem um framework para o CSS e pro JS. Acabou que descontinuei o projeto.
 
 
 # TODO LIST
