@@ -1,7 +1,7 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-const spotifyToken = require("./models/spotify.js");
+const cors = require("cors");
 
 const port = process.env.NODE_PORT || 3000;
 const album = require("./routes/album");
@@ -20,9 +20,8 @@ app.use("/", index);
 app.use("/album", album);
 app.use("/artists", artists);
 app.use("/transfer", transfer);
-app.use("/api", API);
-
+app.use("/api", cors(), API);
 
 app.listen(port, () => {
-	console.log("Node.js Express server listening on port " + port);
+  console.log("Node.js Express server listening on port " + port);
 });
