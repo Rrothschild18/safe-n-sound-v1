@@ -31,3 +31,12 @@ Depos na pasta raiz :
 npm install  // dependencias do gulp, express, nodemon, axios, cors etc.
 
 npm start -- localhost:3000
+
+
+# Procure o arista pelo ID // https://open.spotify.com/artist/2CIMQHirSU0MQqyYHq0eOx
+ 2CIMQHirSU0MQqyYHq0eO
+ Nada pratico kkk,mas so vi dps na documentacao q dava para fazer uma busca relacionada, e nao necessariamente pelo ID.
+ 
+ # Gifs
+<img src="https://media.giphy.com/media/z1yGmprNt2SShZKZev/giphy.gif">
+<img src="https://media.giphy.com/media/40hFF486Xp5j4yvcZM/giphy.gif">
